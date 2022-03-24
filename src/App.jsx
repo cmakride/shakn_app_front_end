@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import AddCocktail from './pages/AddCocktail/AddCocktail'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -7,8 +8,10 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import * as cocktailService from './services/cocktails'
 
 const App = () => {
+  const [cocktails, setCocktails] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -20,6 +23,12 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddCocktail = newCocktailData => {
+    console.log(newCocktailData)
+    cocktailService.create(newCocktailData)
+    .then(newCocktail => setCocktails([...cocktails, newCocktail]))
   }
 
   return (
@@ -43,6 +52,7 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
+        <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>} /> 
       </Routes>
     </>
   )
