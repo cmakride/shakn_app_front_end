@@ -7,7 +7,7 @@ function create(cocktail){
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(cocktail)
-        
+                             
     })
     .then(res => res.json())
 }

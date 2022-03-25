@@ -35,8 +35,25 @@ function AddCocktail(props) {
         evt.preventDefault()
         console.log(formDataIngredient.ingredient)
         //!adding the ingredient in form to the arrayIngredients in state
-        setArrayIngredients(arrayIngredients => [...arrayIngredients,formDataIngredient.ingredient])
+        setArrayIngredients(arrayIngredients => [...arrayIngredients, formDataIngredient.ingredient])
     }
+
+
+
+    const handleRemoveIngredient = (id) => {
+        console.log("ARRAY INGREDIENTS BEFORE == ",arrayIngredients)
+        console.log(id)
+        const newArray = arrayIngredients
+
+        setArrayIngredients(newArray.filter((item, index) => index !== id));
+        
+        console.log("ARRAYINGREDIENTS AFTER=",arrayIngredients)
+        
+    }
+
+    useEffect(()=>{
+        console.log("SomethingHappened")
+    },[arrayIngredients])
 
 
     return (
@@ -49,8 +66,8 @@ function AddCocktail(props) {
                     name="name"
                     onChange={handleChange}
                     value={formData.name}
-                /> 
-            
+                />
+
                 <br />
                 <label htmlFor="method-input">Method:</label>
                 <select name="method" onChange={handleChange} value={formData.method}>
@@ -85,11 +102,14 @@ function AddCocktail(props) {
             </form>
             <h4>Ingredients</h4>
             <ul>
-            {arrayIngredients.map((ingredient,idx)=>(
-                <li key={idx}>
-                    <h2>{ingredient}</h2>
-                </li> 
-            ))}
+                {arrayIngredients.map((ingredient, idx) => (
+                    <li key={idx}>
+                        <h2>{ingredient}</h2>
+                        <button type="button" onClick={()=> handleRemoveIngredient(idx)}>
+                            Remove
+                        </button>
+                    </li>
+                ))}
             </ul>
         </>
     );
