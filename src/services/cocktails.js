@@ -17,7 +17,13 @@ function getAll() {
     .then(res => res.json())
 }
 
+function getDetail(id) {
+    return fetch (`${BASE_URL}/${id}}`)
+    .then(res => res.json())
+}
+
 export {
+    getDetail,
     create,
     getAll
 }
