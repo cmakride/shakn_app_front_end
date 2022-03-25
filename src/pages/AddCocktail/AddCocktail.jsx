@@ -83,7 +83,7 @@ function AddCocktail(props) {
                     value={formData.garnish}
                 /> <br />
                 <label htmlFor="servedin-input">Served in:</label>
-                <select name="servedIn" onChange={handleChange} value={formData.servedIn}>
+                <select name="served_in" onChange={handleChange} value={formData.served_in}>
                     <option>Martini Glass</option>
                     <option>Rocks Glass</option>
                     <option>Rocks Glass Ice</option>
