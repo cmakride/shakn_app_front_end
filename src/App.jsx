@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, Navigate, NavLink } from 'react-router-dom'
 import AddCocktail from './pages/AddCocktail/AddCocktail'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -25,10 +25,10 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleAddCocktail = newCocktailData => {
-    console.log(newCocktailData)
-    cocktailService.create(newCocktailData)
-    .then(newCocktail => setCocktails([...cocktails, newCocktail]))
+  const handleAddCocktail = async newCocktailData => {
+    console.log("HANDLEADDCOCKTAIL, NEWCOCKTAIL DATA == ",newCocktailData)
+    const newCocktail = await cocktailService.create(newCocktailData)
+    setCocktails([...cocktails,newCocktail])
   }
 
   return (
@@ -52,7 +52,7 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
-        <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>} /> 
+        <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
       </Routes>
     </>
   )
