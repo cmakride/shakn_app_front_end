@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate, Navigate, NavLink } from 'react-router-dom'
 import AddCocktail from './pages/AddCocktail/AddCocktail'
+import CocktailList from './pages/CocktailList/CocktailList'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -31,6 +32,11 @@ const App = () => {
     setCocktails([...cocktails,newCocktail])
   }
 
+  useEffect(() => {
+    cocktailService.getAll()
+    .then(allCocktails => setCocktails(allCocktails))
+  }, [])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -53,6 +59,7 @@ const App = () => {
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
         <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
+        <Route path='/cocktails' element={<CocktailList cocktails={cocktails}/> }/>
       </Routes>
     </>
   )
