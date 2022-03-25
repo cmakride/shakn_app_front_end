@@ -73,14 +73,14 @@ function AddCocktail(props) {
                     <option>High Ball</option>
                 </select> <br />
                 <button type='submit'>Add Cocktail</button>
-            </form>
+            </form><br />
             <form autoComplete='off' ref={formElementIng} onSubmit={handleIngredientAdd}>
                 <input
                     type="text"
                     name="ingredient"
 
                     onChange={handleIngredientChange}
-                />
+                /> <br />   
                 <button type='submit'>Add Ingredient</button>
             </form>
             <h4>Ingredients</h4>
