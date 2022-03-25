@@ -28,10 +28,9 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  const handleAddCocktail = async newCocktailData => {
-    console.log("HANDLEADDCOCKTAIL, NEWCOCKTAIL DATA == ",newCocktailData)
-    const newCocktail = await cocktailService.create(newCocktailData)
-    setCocktails([...cocktails,newCocktail])
+  const handleAddCocktail = newCocktailData => {
+    cocktailService.create(newCocktailData)
+    .then(newCocktail => setCocktails([...cocktails, newCocktail]))
   }
 
   useEffect(() => {
