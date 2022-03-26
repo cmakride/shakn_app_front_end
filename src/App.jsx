@@ -8,13 +8,17 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as cocktailService from './services/cocktails'
+import * as ProfileService from './services/profileService'
 
 const App = () => {
   const [cocktails, setCocktails] = useState([])
   const [cocktailDetail, setCocktailDetail] = useState([])
+  const [profiles, setProfiles] = useState([])
+  const [profilelDetails, setProfileDetails] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -38,6 +42,11 @@ const App = () => {
     .then(allCocktails => setCocktails(allCocktails))
   }, [])
 
+  useEffect(() => {
+    ProfileService.getAllProfiles()
+    .then(allProfiles => setProfiles(allProfiles))
+  }, [])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -55,6 +64,7 @@ const App = () => {
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
         />
+        <Route path='/profile' element={<ProfileDetails />}/>
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}

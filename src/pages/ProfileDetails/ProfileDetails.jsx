@@ -1,8 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 
-const ProfileDetails = () => {
+const ProfileDetails = (profile) => {
   const location = useLocation()
-  const profile = location.state.profile
+  const profiles = location.state.profile
 
   return(
     <>
