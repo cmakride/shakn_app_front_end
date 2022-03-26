@@ -1,5 +1,4 @@
 import * as tokenService from '../services/tokenService'
-
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/profiles`
 
 async function getAllProfiles() {
@@ -9,4 +8,12 @@ async function getAllProfiles() {
   return await res.json()
 }
 
-export { getAllProfiles }
+function getProfileDetail(id) {
+  return fetch (`${BASE_URL}/${id}}`)
+  .then(res => res.json())
+}
+
+export { 
+getAllProfiles,
+getProfileDetail
+}
