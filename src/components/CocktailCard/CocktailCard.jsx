@@ -1,9 +1,14 @@
-function CocktailCard({cocktail}) {
+import { Link } from "react-router-dom"
+
+function CocktailCard({cocktail, handleDeleteCocktail}) {
     return(
         <div>
             <div>
-                <h2>{cocktail.name}</h2>
+                <Link to="/cocktail" state={{ cocktail }}>{cocktail.name}</Link>
             </div>
+                <div>
+                    <button onClick={() => handleDeleteCocktail(cocktail._id)}>Delete</button>
+                </div>
         </div>
     )
 }

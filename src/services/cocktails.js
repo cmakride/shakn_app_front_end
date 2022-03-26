@@ -22,7 +22,13 @@ function getDetail(id) {
     .then(res => res.json())
 }
 
+function deleteCocktail(id) {
+    return fetch(`${BASE_URL}/${id}`, {method: 'DELETE'})
+  .then(res => res.json())
+}
+
 export {
+    deleteCocktail,
     getDetail,
     create,
     getAll
