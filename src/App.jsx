@@ -37,6 +37,11 @@ const App = () => {
     .then(newCocktail => setCocktails([...cocktails, newCocktail]))
   }
 
+  const handleDeleteCocktail = id => {
+    cocktailService.deleteCocktail(id)
+    .then(deletedCocktail => setCocktails(cocktails.filter(cocktail => cocktail._id !== deletedCocktail._id)))
+  }
+
   useEffect(() => {
     cocktailService.getAll()
     .then(allCocktails => setCocktails(allCocktails))
@@ -70,7 +75,7 @@ const App = () => {
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
         <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
-        <Route path='/cocktails' element={<CocktailList cocktails={cocktails}/> }/>
+        <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail}/> }/>
         <Route path='/cocktail' element={<CocktailDetail />}/>
       </Routes>
     </>
