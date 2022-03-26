@@ -13,7 +13,20 @@ function getProfileDetail(id) {
   .then(res => res.json())
 }
 
+function updateProfile(profile) {
+  return fetch(`${BASE_URL}/${profile._id}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: JSON.stringify(profile)
+  })
+  .then(res => res.json())
+}
+
 export { 
 getAllProfiles,
-getProfileDetail
+getProfileDetail,
+updateProfile
 }
