@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
+import { CocktailCard } from "../../components/CocktailCard/CocktailCard";
 
 const CocktailList = (props) => {
-    console.log(props.cocktails)
     return ( 
         <>
         <h1>Cocktail List</h1>
         <div>
-            {props.cocktails.map((cocktail, idx) => (
-                <div key={idx} >
-                    <Link to="/cocktail" state={{ cocktail }}>{cocktail.name}</Link>
+            {props.cocktails.map((cocktail) => (
+                <div key={cocktail._id} >
+                   <Link to='/cocktail' state={{ cocktail }}><CocktailCard key={cocktail._id} cocktail={cocktail} /></Link> 
                 </div>
             ))}
         </div>
