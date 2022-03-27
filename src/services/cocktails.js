@@ -5,7 +5,10 @@ function create(cocktail){
     console.log("SERVICES",cocktail)
     return fetch(BASE_URL, {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: { 
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+    },
         body: JSON.stringify(cocktail)
                              
     })
