@@ -11,11 +11,13 @@ function AddCocktail(props) {
 
     //!individual ingredient in the form
     const [formDataIngredient, setformDataIngredient] = useState({})
+    const [inputValue, setInputValue] = useState("");
 
     //! Ingredients Array stored as a state
     const [arrayIngredients, setArrayIngredients] = useState([])
 
     const handleIngredientChange = (evt) => {
+        setInputValue(evt.target.value)
         setformDataIngredient({ ...formDataIngredient, [evt.target.name]: evt.target.value });
     };
 
@@ -26,29 +28,25 @@ function AddCocktail(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        console.log("HANDLESUBMIT, FORMDATA == ", formData)
         formData.ingredients = arrayIngredients
         props.handleAddCocktail(formData)
     }
 
     //! add to the state which is an array of ingredients
     const handleIngredientAdd = (evt) => {
+        
         evt.preventDefault()
-        console.log(formDataIngredient.ingredient)
         //!adding the ingredient in form to the arrayIngredients in state
         setArrayIngredients(arrayIngredients => [...arrayIngredients, formDataIngredient.ingredient])
+        setInputValue("")
     }
 
 
 
     const handleRemoveIngredient = (id) => {
-        console.log("ARRAY INGREDIENTS BEFORE == ", arrayIngredients)
-        console.log(id)
         const newArray = arrayIngredients
 
         setArrayIngredients(newArray.filter((item, index) => index !== id));
-
-        console.log("ARRAYINGREDIENTS AFTER=", arrayIngredients)
 
     }
 
@@ -64,7 +62,7 @@ function AddCocktail(props) {
     }
 
     useEffect(() => {
-        console.log(formData.served_in)
+        
         //!Make sure have at least 1 ingredient added and form is valid, name, garnish right now
         if (enoughIngredients() && formElement.current.checkValidity()) { setValidForm(true) }
         else {
@@ -130,7 +128,7 @@ function AddCocktail(props) {
                 <input
                     type="text"
                     name="ingredient"
-
+                    value = {inputValue}
                     onChange={handleIngredientChange}
                 /> <br />
                 <button type='submit'
