@@ -12,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
               <NavLink to='/'>Shakn</NavLink>
             </span>
           </div>
-          <ul className="md:flex md:items-center md:pb-0 pb-12 abosulite md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in">
+          <ul className="md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in">
             <li className="mx-4 my-6 md:my-0">
               <NavLink
                 to="/add"
@@ -74,10 +74,10 @@ const NavBar = ({ user, handleLogout }) => {
           </div>
           <ul className="md:flex md:items-center md:pb-0 pb-12 abosulite md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9">
             <li className="mx-4 my-6 md:my-0">
-              <Link to="/login">Log In</Link>
+              <NavLink to="/login" className="text-xl hover:text-orange-600 duration-300">Log In</NavLink>
             </li>
             <li className="mx-4 my-6 md:my-0">
-              <Link to="/signup">Sign Up</Link>
+              <NavLink to="/signup" className="text-xl hover:text-orange-600 duration-300">Sign Up</NavLink>
             </li>
           </ul>
         </nav>
