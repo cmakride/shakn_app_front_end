@@ -9,7 +9,24 @@ async function getAllProfiles() {
 }
 
 function getProfileDetail(id) {
-  return fetch (`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}/${id}`,{
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+  })
+    .then(res => res.json())
+}
+
+function addCocktailToCollection(cocktail) {
+  return fetch(`${BASE_URL}/addCocktail`, {
+    method: "POST",
+    headers: {
+      Authorization: 
+      `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(cocktail)
+  })
   .then(res => res.json())
 }
 
@@ -22,11 +39,12 @@ function updateProfile(profile) {
     },
     body: JSON.stringify(profile)
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
-export { 
-getAllProfiles,
-getProfileDetail,
-updateProfile
+export {
+  getAllProfiles,
+  getProfileDetail,
+  updateProfile,
+  addCocktailToCollection
 }
