@@ -14,7 +14,7 @@ function getProfileDetail(id) {
 }
 
 function updateProfile(profile) {
-  return fetch(`${BASE_URL}/${profile._id}`, {
+  return fetch(`${BASE_URL}/${profile.get('_id')}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
