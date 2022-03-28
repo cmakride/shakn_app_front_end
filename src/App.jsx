@@ -76,7 +76,9 @@ const App = () => {
 
   return (
     <>
+      <div className="bg-cyan-600 w-full h-screen">
       <NavBar user={user} handleLogout={handleLogout} />
+      
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -105,6 +107,7 @@ const App = () => {
         <Route path='/cocktail' element={<CocktailDetail />}/>
         <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
       </Routes>
+      </div>
     </>
   )
 }
