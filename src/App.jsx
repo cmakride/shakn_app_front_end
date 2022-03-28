@@ -10,16 +10,18 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
+import EditProfile from './pages/EditProfile/EditProfile'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as cocktailService from './services/cocktails'
-import * as ProfileService from './services/profileService'
+import * as profileService from './services/profileService'
 
 const App = () => {
   const [cocktails, setCocktails] = useState([])
   const [cocktailDetail, setCocktailDetail] = useState([])
   const [profiles, setProfiles] = useState([])
   const [profileDetails, setProfileDetails] = useState([])
+  const [EditProfile, setEditProfile] = useState([])
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -55,15 +57,22 @@ const App = () => {
   }
 
 
+  const handleUpdateProfile = updatedProfileData => {
+    profileService.updateProfile(updatedProfileData)
+    .then(updatedProfile => {setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
+    })
+  }
+
   useEffect(() => {
     cocktailService.getAll()
     .then(allCocktails => setCocktails(allCocktails))
   }, [])
 
   useEffect(() => {
-    ProfileService.getAllProfiles()
+    profileService.getAllProfiles()
     .then(allProfiles => setProfiles(allProfiles))
   }, [])
+
 
   return (
     <>
@@ -82,7 +91,10 @@ const App = () => {
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
         />
+
         <Route path='/profile' element={<ProfileDetails />}/>
+        <Route path='/edit' element={<EditProfile handleUpdateProfile={handleUpdateProfile} />} />
+
         <Route
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
