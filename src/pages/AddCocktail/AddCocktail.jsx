@@ -28,13 +28,23 @@ function AddCocktail(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        formData.ingredients = arrayIngredients
-        props.handleAddCocktail(formData)
+        const cocktailFormData = new FormData()
+        cocktailFormData.append('image', formData.photo)
+        cocktailFormData.append('name', formData.name)
+        cocktailFormData.append('method', formData.method)
+        cocktailFormData.append('served_in', formData.served_in)
+        cocktailFormData.append('garnish', formData.garnish)
+        cocktailFormData.append('ingredients', arrayIngredients)
+        props.handleAddCocktail(cocktailFormData)
+
+        //what had before
+        // formData.ingredients = arrayIngredients
+        // props.handleAddCocktail(formData)
     }
 
     //! add to the state which is an array of ingredients
     const handleIngredientAdd = (evt) => {
-        
+
         evt.preventDefault()
         //!adding the ingredient in form to the arrayIngredients in state
         setArrayIngredients(arrayIngredients => [...arrayIngredients, formDataIngredient.ingredient])
@@ -62,13 +72,18 @@ function AddCocktail(props) {
     }
 
     useEffect(() => {
-        
+
         //!Make sure have at least 1 ingredient added and form is valid, name, garnish right now
         if (enoughIngredients() && formElement.current.checkValidity()) { setValidForm(true) }
         else {
             setValidForm(false)
         }
     }, [formData, arrayIngredients])
+
+    //!this will store photofile in formdata in state
+    const handleChangePhoto = (evt) => {
+        setFormData({...formData, photo: evt.target.files[0]})
+      }
 
 
     return (
@@ -128,7 +143,7 @@ function AddCocktail(props) {
                 <input
                     type="text"
                     name="ingredient"
-                    value = {inputValue}
+                    value={inputValue}
                     onChange={handleIngredientChange}
                 /> <br />
                 <button type='submit'
@@ -148,6 +163,19 @@ function AddCocktail(props) {
                     </li>
                 ))}
             </ul>
+            {/* Upload Photo Form */}
+            <div className="form-group mb-4">
+                <label htmlFor="photo-upload" className="form-label">
+                    Upload Photo
+                </label>
+                <input
+                    type="file"
+                    className="form-control"
+                    id="photo-upload"
+                    name="photo"
+                    onChange={handleChangePhoto}
+                />
+            </div>
         </>
     );
 }
