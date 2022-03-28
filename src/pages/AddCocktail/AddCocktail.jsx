@@ -34,10 +34,20 @@ function AddCocktail(props) {
         cocktailFormData.append('method', formData.method)
         cocktailFormData.append('served_in', formData.served_in)
         cocktailFormData.append('garnish', formData.garnish)
-        cocktailFormData.append('ingredients', arrayIngredients)
+
+        //! Have to do it this way to get proper array of ingredients in formdata
+        for(let i = 0 ; i < arrayIngredients.length; i++){
+            cocktailFormData.append('ingredients[]',arrayIngredients[i])
+        }
+       
         props.handleAddCocktail(cocktailFormData)
 
-        //what had before
+        // //! How to view a formData these elements
+        // for (var key of cocktailFormData.entries()) {
+        //     console.log(key[0] + ', ' + key[1]);
+        // }
+
+        //!what had before created formdata instance
         // formData.ingredients = arrayIngredients
         // props.handleAddCocktail(formData)
     }
