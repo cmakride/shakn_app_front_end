@@ -4,6 +4,7 @@ import AddCocktail from './pages/AddCocktail/AddCocktail'
 import CocktailList from './pages/CocktailList/CocktailList'
 import CocktailDetail from './pages/CocktailDetails/CocktailDetails'
 import { EditCocktail } from './pages/EditCocktail/EditCocktail'
+import Collection from './pages/Collection/Collection'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -20,8 +21,8 @@ const App = () => {
   const [cocktails, setCocktails] = useState([])
   const [cocktailDetail, setCocktailDetail] = useState([])
   const [profiles, setProfiles] = useState([])
-  const [profileDetails, setProfileDetails] = useState([]) 
-  
+  const [profileDetails, setProfileDetails] = useState([])
+
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -37,76 +38,86 @@ const App = () => {
 
   const handleAddCocktail = newCocktailData => {
     cocktailService.create(newCocktailData)
-    .then(newCocktail => setCocktails([...cocktails, newCocktail]))
+      .then(newCocktail => setCocktails([...cocktails, newCocktail]))
   }
 
   const handleDeleteCocktail = id => {
     cocktailService.deleteCocktail(id)
-    .then(deletedCocktail => setCocktails(cocktails.filter(cocktail => cocktail._id !== deletedCocktail._id)))
+      .then(deletedCocktail => setCocktails(cocktails.filter(cocktail => cocktail._id !== deletedCocktail._id)))
   }
 
   const handleUpdateCocktail = updatedCocktailData => {
     cocktailService.update(updatedCocktailData)
-    .then(updatedCocktail => {
-      const newCocktailArray = cocktails.map(cocktail => 
-        cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail
-      )
-      setCocktails(newCocktailArray)
-			navigate('/cocktails')
-    })
+      .then(updatedCocktail => {
+        const newCocktailArray = cocktails.map(cocktail =>
+          cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail
+        )
+        setCocktails(newCocktailArray)
+        navigate('/cocktails')
+      })
   }
 
 
   const handleUpdateProfile = updatedProfileData => {
     profileService.updateProfile(updatedProfileData)
-    .then(updatedProfile => {setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
-    })
+      .then(updatedProfile => {
+        setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
+      })
+  }
+
+  const handleAddCocktailFav = () => {
+
+  }
+
+  const handleRemoveCocktailFav = () => {
+    
   }
 
   useEffect(() => {
     cocktailService.getAll()
-    .then(allCocktails => setCocktails(allCocktails))
+      .then(allCocktails => setCocktails(allCocktails))
   }, [])
 
   useEffect(() => {
     profileService.getAllProfiles()
-    .then(allProfiles => setProfiles(allProfiles))
+      .then(allProfiles => setProfiles(allProfiles))
   }, [])
+
 
 
   return (
     <>
       <div className="bg-cyan-600 w-full h-screen">
-      <NavBar user={user} handleLogout={handleLogout} />
-      
-      <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route
-          path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-        />
+        <NavBar user={user} handleLogout={handleLogout} />
 
-        <Route path='/profile' element={<ProfileDetails />}/>
+        <Routes>
+          <Route path="/" element={<Landing user={user} />} />
+          <Route
+            path="/signup"
+            element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          />
+          <Route
+            path="/login"
+            element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          />
+          <Route
+            path="/profiles"
+            element={user ? <Profiles /> : <Navigate to="/login" />}
+          />
 
-        <Route path='/edit' element={<EditProfile handleUpdateProfile={handleUpdateProfile} />} />
+          <Route path='/profile' element={<ProfileDetails />} />
 
-        <Route
-          path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
-        />
-        <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
-        <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail}/> }/>
-        <Route path='/cocktail' element={<CocktailDetail />}/>
-        <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
-      </Routes>
+          <Route path='/edit' element={<EditProfile handleUpdateProfile={handleUpdateProfile} />} />
+
+          <Route
+            path='/favorites'
+            element={<Collection handleAddCocktailFav={handleAddCocktailFav} handleRemoveCocktailFav={handleRemoveCocktailFav} profile={user} />}
+          />
+          <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail} />} />
+          <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail} />} />
+          <Route path='/cocktail' element={<CocktailDetail />} />
+          <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
+        </Routes>
       </div>
     </>
   )
