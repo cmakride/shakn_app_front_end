@@ -29,7 +29,17 @@ function deleteCocktail(id) {
   .then(res => res.json())
 }
 
+function update(cocktail) {
+    return fetch(`${BASE_URL}/${cocktail._id}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(cocktail)
+      })
+        .then(res => res.json())
+    }
+
 export {
+    update,
     deleteCocktail,
     getDetail,
     create,
