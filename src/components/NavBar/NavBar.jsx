@@ -9,7 +9,7 @@ const NavBar = ({ user, handleLogout }) => {
           <div>
             <span className="text-2xl cursor-pointer mr-1 pt-2">
             <ion-icon name="wine-outline"></ion-icon>
-              Shakn
+              <NavLink to='/'>Shakn</NavLink>
             </span>
           </div>
           <ul className="md:flex md:items-center md:pb-0 pb-12 abosulite md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in">
