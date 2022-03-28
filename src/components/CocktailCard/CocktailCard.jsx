@@ -7,7 +7,7 @@ function CocktailCard({cocktail, handleDeleteCocktail}) {
                 <Link to="/cocktail" state={{ cocktail }}>{cocktail.name}</Link>
             </div>
                 <div>
-                    <Link to='/edit' state={{ cocktail }}>Edit</Link>
+                    <Link to='/editcocktail' state={{ cocktail }}>Edit</Link>
                 </div>
                 <div>
                     <button onClick={() => handleDeleteCocktail(cocktail._id)}>Delete</button>
