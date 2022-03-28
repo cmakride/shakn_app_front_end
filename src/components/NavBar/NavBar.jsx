@@ -39,6 +39,14 @@ const NavBar = ({ user, handleLogout }) => {
             </li>
             <li className="mx-4 my-6 md:my-0">
               <NavLink
+                to="/favorites"
+                className="text-xl hover:text-orange-600 duration-300"
+              >
+                My Collection
+              </NavLink>
+            </li>
+            <li className="mx-4 my-6 md:my-0">
+              <NavLink
                 to="/changePassword"
                 className="text-xl hover:text-orange-600 duration-300"
               >

@@ -9,7 +9,7 @@ async function getAllProfiles() {
 }
 
 function getProfileDetail(id) {
-  return fetch (`${BASE_URL}/${id}}`)
+  return fetch (`${BASE_URL}/${id}`)
   .then(res => res.json())
 }
 
