@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, Navigate, NavLink } from 'react-router-dom'
 import AddCocktail from './pages/AddCocktail/AddCocktail'
 import CocktailList from './pages/CocktailList/CocktailList'
 import CocktailDetail from './pages/CocktailDetails/CocktailDetails'
+import { EditCocktail } from './pages/EditCocktail/EditCocktail'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -43,6 +44,18 @@ const App = () => {
     cocktailService.deleteCocktail(id)
     .then(deletedCocktail => setCocktails(cocktails.filter(cocktail => cocktail._id !== deletedCocktail._id)))
   }
+
+  const handleUpdateCocktail = updatedCocktailData => {
+    cocktailService.update(updatedCocktailData)
+    .then(updatedCocktail => {
+      const newCocktailArray = cocktails.map(cocktail => 
+        cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail
+      )
+      setCocktails(newCocktailArray)
+			navigate('/cocktails')
+    })
+  }
+
 
   const handleUpdateProfile = updatedProfileData => {
     profileService.updateProfile(updatedProfileData)
@@ -90,6 +103,7 @@ const App = () => {
         <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
         <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail}/> }/>
         <Route path='/cocktail' element={<CocktailDetail />}/>
+        <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
       </Routes>
     </>
   )

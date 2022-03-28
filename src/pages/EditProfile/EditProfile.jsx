@@ -4,9 +4,12 @@ import { Link, useLocation } from 'react-router-dom'
 
 function EditProfile(props) {
   const location = useLocation()
-  const [formData, setFormData] = useState(location.state.profile)
   const [validForm, setValidForm] = useState(true)
   const formElement = useRef()
+	const [formData, setFormData] = useState(location.state.profile)({
+		name: '',
+	})
+
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value })
@@ -28,12 +31,11 @@ function EditProfile(props) {
 			<h1>Edit Profile</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div>
-					<label htmlFor="name-input" className="form-label">
+					<label htmlFor="name-input">
 						Name (required)
 					</label>
 					<input 
 						type="text"
-						className="form-control"
 						id="name-input"
 						name="name"
             value={formData.name}
