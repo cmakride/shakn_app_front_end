@@ -21,7 +21,7 @@ const App = () => {
   const [cocktailDetail, setCocktailDetail] = useState([])
   const [profiles, setProfiles] = useState([])
   const [profileDetails, setProfileDetails] = useState([])
-  const [EditProfile, setEditProfile] = useState([])
+
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
