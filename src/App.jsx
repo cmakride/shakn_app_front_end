@@ -102,7 +102,7 @@ const App = () => {
         <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail}/>}/> 
         <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail}/> }/>
         <Route path='/cocktail' element={<CocktailDetail />}/>
-        <Route path='/edit' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
+        <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
       </Routes>
     </>
   )
