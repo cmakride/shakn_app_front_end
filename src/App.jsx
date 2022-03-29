@@ -20,8 +20,10 @@ import * as profileService from './services/profileService'
 const App = () => {
   const [cocktails, setCocktails] = useState([])
   const [cocktailDetail, setCocktailDetail] = useState([])
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState({})
   const [profileDetails, setProfileDetails] = useState([])
+
+  const [profile, setProfile] = useState({})
 
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -65,8 +67,12 @@ const App = () => {
       })
   }
 
-  const handleAddCocktailFav = () => {
-
+  const handleAddCocktailFav = cocktail => {
+    console.log(cocktail)
+    // profileService.addCocktailToCollection(cocktail)
+    // .then(updatedProfile => {
+    //   setProfile(updatedProfile)
+    // })
   }
 
   const handleRemoveCocktailFav = () => {
@@ -82,6 +88,16 @@ const App = () => {
     profileService.getAllProfiles()
       .then(allProfiles => setProfiles(allProfiles))
   }, [])
+  
+  useEffect(() =>{
+    if(user){
+      profileService.getProfileDetail(user.profile)
+      .then(profileData => {
+        setProfile(profileData)
+      })
+    }
+  },[user])
+
 
 
 
@@ -91,32 +107,64 @@ const App = () => {
         <NavBar user={user} handleLogout={handleLogout} />
 
         <Routes>
-          <Route path="/" element={<Landing user={user} />} />
+          <Route path="/" element={
+          <Landing user={user} />} 
+          />
+          
           <Route
             path="/signup"
             element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
           />
+
           <Route
             path="/login"
             element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
           />
+
           <Route
             path="/profiles"
-            element={user ? <Profiles /> : <Navigate to="/login" />}
+            element={
+              user ? <Profiles /> : <Navigate to="/login" />}
           />
 
-          <Route path='/profile' element={<ProfileDetails />} />
+          <Route path='/profile' element={
+          <ProfileDetails />} 
+          />
 
-          <Route path='/edit' element={<EditProfile handleUpdateProfile={handleUpdateProfile} />} />
+          <Route path='/edit' element={
+          <EditProfile handleUpdateProfile={handleUpdateProfile} />} 
+          />
 
           <Route
             path='/favorites'
-            element={<Collection handleAddCocktailFav={handleAddCocktailFav} handleRemoveCocktailFav={handleRemoveCocktailFav} profile={user} />}
+            element={
+            <Collection 
+            handleAddCocktailFav={handleAddCocktailFav} 
+            handleRemoveCocktailFav={handleRemoveCocktailFav} 
+            profile={profile} />}
           />
-          <Route path='/add' element={<AddCocktail handleAddCocktail={handleAddCocktail} />} />
-          <Route path='/cocktails' element={<CocktailList cocktails={cocktails} handleDeleteCocktail={handleDeleteCocktail} />} />
-          <Route path='/cocktail' element={<CocktailDetail />} />
-          <Route path='/editcocktail' element={<EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} />
+
+          <Route path='/add' element={
+          <AddCocktail handleAddCocktail={handleAddCocktail} />} 
+          />
+
+          <Route path='/cocktails' element={
+          <CocktailList 
+          cocktails={cocktails} 
+          handleDeleteCocktail={handleDeleteCocktail} 
+          handleAddCocktailFav = {handleAddCocktailFav}
+          handleDeleteCocktailFav = {handleRemoveCocktailFav}
+          profile = {profile} />} 
+          />
+
+          <Route path='/cocktail' element={
+          <CocktailDetail />} 
+          />
+
+          <Route path='/editcocktail' element={
+          <EditCocktail handleUpdateCocktail={handleUpdateCocktail} />} 
+          />
+
         </Routes>
       </div>
     </>
