@@ -68,11 +68,11 @@ const App = () => {
   }
 
   const handleAddCocktailFav = cocktail => {
-    console.log(cocktail)
-    // profileService.addCocktailToCollection(cocktail)
-    // .then(updatedProfile => {
-    //   setProfile(updatedProfile)
-    // })
+    
+    profileService.addCocktailToCollection(cocktail)
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
   }
 
   const handleRemoveCocktailFav = () => {
