@@ -49,7 +49,7 @@ function AddCocktail(props) {
 
         //!what had before created formdata instance
         // formData.ingredients = arrayIngredients
-        // props.handleAddCocktail(formData)
+        // props.handleAddCocktail(formData)          
     }
 
     //! add to the state which is an array of ingredients

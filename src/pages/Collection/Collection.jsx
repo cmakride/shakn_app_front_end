@@ -8,10 +8,7 @@ const Collection = ({profile, handleAddCocktailFav,handleRemoveCocktailFav}) => 
 
 const [favorites, setFavorites] = useState([])
 
-useEffect(()=>{
-  profileService.getProfileDetail(profile.profile)
-  .then(profileDetails => setFavorites([...favorites, profileDetails.favoriteCocktails]))
-},[])
+
   
   return ( 
     <>
