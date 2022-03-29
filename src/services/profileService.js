@@ -1,6 +1,17 @@
 import * as tokenService from '../services/tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/profiles`
 
+function createProfileDetails(profile) {
+  return fetch(BASE_URL, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: profile
+  })
+  .then(res => res.json())
+}
+
 async function getAllProfiles() {
   const res = await fetch(BASE_URL, {
     headers: { Authorization: `Bearer ${tokenService.getToken()}` },
@@ -8,27 +19,18 @@ async function getAllProfiles() {
   return await res.json()
 }
 
-function getProfileDetail(id) {
+function getEdit(id) {
+  return fetch (`${BASE_URL}/${id}}`)
+  .then(res => res.json())
+}
+
+function getProfileDetail(profile, id) {
   return fetch(`${BASE_URL}/${id}`,{
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
   })
     .then(res => res.json())
-}
-
-function addCocktailToCollection(cocktail) {
-  console.log(cocktail)
-  return fetch(`${BASE_URL}/addCocktail`, {
-    method: "POST",
-    headers: {
-      Authorization: 
-      `Bearer ${tokenService.getToken()}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(cocktail)
-  })
-  .then(res => res.json())
 }
 
 function updateProfile(profile) {
@@ -47,5 +49,6 @@ export {
   getAllProfiles,
   getProfileDetail,
   updateProfile,
-  addCocktailToCollection
+  createProfileDetails,
+  getEdit
 }
