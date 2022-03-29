@@ -10,8 +10,8 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
-import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
-import EditProfile from './pages/EditProfile/EditProfile'
+import ProfileDetail from  './pages/ProfileDetails/ProfileDetails'
+import { EditProfile } from './pages/EditProfile/EditProfile'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as cocktailService from './services/cocktails'
@@ -20,8 +20,7 @@ import * as profileService from './services/profileService'
 const App = () => {
   const [cocktails, setCocktails] = useState([])
   const [cocktailDetail, setCocktailDetail] = useState([])
-  const [profiles, setProfiles] = useState({})
-  const [profileDetails, setProfileDetails] = useState([])
+
 
   const [profile, setProfile] = useState({})
 
@@ -60,13 +59,6 @@ const App = () => {
   }
 
 
-  const handleUpdateProfile = updatedProfileData => {
-    profileService.updateProfile(updatedProfileData)
-      .then(updatedProfile => {
-        setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
-      })
-  }
-
   const handleAddCocktailFav = cocktail => {
     
     profileService.addCocktailToCollection(cocktail)
@@ -86,7 +78,12 @@ const App = () => {
 
   useEffect(() => {
     profileService.getAllProfiles()
-      .then(allProfiles => setProfiles(allProfiles))
+      .then(allProfiles => setProfile(allProfiles))
+  }, [])
+  
+  useEffect(() => {
+    profileService.getAllProfiles()
+      .then(allProfiles => setProfile(allProfiles))
   }, [])
   
   useEffect(() =>{
@@ -97,8 +94,7 @@ const App = () => {
       })
     }
   },[user])
-
-
+  
 
 
   return (
@@ -127,13 +123,10 @@ const App = () => {
               user ? <Profiles /> : <Navigate to="/login" />}
           />
 
-          <Route path='/profile' element={
-          <ProfileDetails />} 
-          />
+          <Route path='/profile' element={<ProfileDetail />} />
+          <Route path='/editprofile' element={<EditProfile />} />
 
-          <Route path='/edit' element={
-          <EditProfile handleUpdateProfile={handleUpdateProfile} />} 
-          />
+
 
           <Route
             path='/favorites'
