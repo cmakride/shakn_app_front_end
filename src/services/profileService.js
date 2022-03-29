@@ -21,7 +21,6 @@ async function getAllProfiles() {
 }
 
 function addCocktailToCollection(cocktail) {
-  console.log(cocktail)
   return fetch(`${BASE_URL}/addCocktail`, {
     method: "POST",
     headers: {
@@ -34,6 +33,7 @@ function addCocktailToCollection(cocktail) {
   .then(res => res.json())
 }
 
+
 function getProfileDetail(profile, id) {
   return fetch(`${BASE_URL}/${id}`,{
     headers: {
@@ -41,6 +41,18 @@ function getProfileDetail(profile, id) {
     },
   })
     .then(res => res.json())
+
+function removeCocktailFromCollection(cocktail) {
+  return fetch(`${BASE_URL}/removeCocktail`, {
+    method: "PATCH",
+    headers: {
+      Authorization: 
+      `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(cocktail)
+  })
+  .then(res => res.json())
 }
 
 function updateProfile(profile) {
@@ -61,4 +73,7 @@ export {
   createProfileDetail,
   addCocktailToCollection,
   getProfileDetail
+  addCocktailToCollection,
+  removeCocktailFromCollection
+
 }

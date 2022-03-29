@@ -60,15 +60,17 @@ const App = () => {
 
 
   const handleAddCocktailFav = cocktail => {
-    
     profileService.addCocktailToCollection(cocktail)
     .then(updatedProfile => {
       setProfile(updatedProfile)
     })
   }
 
-  const handleRemoveCocktailFav = () => {
-    
+  const handleRemoveCocktailFav = cocktail => {
+    profileService.removeCocktailFromCollection(cocktail)
+    .then(updatedProfile => {
+      setProfile(updatedProfile)
+    })
   }
 
   useEffect(() => {
@@ -146,7 +148,7 @@ const App = () => {
           cocktails={cocktails} 
           handleDeleteCocktail={handleDeleteCocktail} 
           handleAddCocktailFav = {handleAddCocktailFav}
-          handleDeleteCocktailFav = {handleRemoveCocktailFav}
+          handleRemoveCocktailFav = {handleRemoveCocktailFav}
           profile = {profile} />} 
           />
 
