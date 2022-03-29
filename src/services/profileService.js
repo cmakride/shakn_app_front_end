@@ -34,6 +34,7 @@ function addCocktailToCollection(cocktail) {
   .then(res => res.json())
 }
 
+
 function getProfileDetailPage(profile) {
   return fetch(`${BASE_URL}`,{
     headers: {
