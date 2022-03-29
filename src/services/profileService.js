@@ -18,9 +18,21 @@ function getProfileDetail(id) {
 }
 
 function addCocktailToCollection(cocktail) {
-  console.log(cocktail)
   return fetch(`${BASE_URL}/addCocktail`, {
     method: "POST",
+    headers: {
+      Authorization: 
+      `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(cocktail)
+  })
+  .then(res => res.json())
+}
+
+function removeCocktailFromCollection(cocktail) {
+  return fetch(`${BASE_URL}/removeCocktail`, {
+    method: "PATCH",
     headers: {
       Authorization: 
       `Bearer ${tokenService.getToken()}`,
@@ -47,5 +59,6 @@ export {
   getAllProfiles,
   getProfileDetail,
   updateProfile,
-  addCocktailToCollection
+  addCocktailToCollection,
+  removeCocktailFromCollection
 }
