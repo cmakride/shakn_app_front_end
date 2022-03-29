@@ -88,7 +88,7 @@ const App = () => {
   
   useEffect(() =>{
     if(user){
-      profileService.getProfileDetail(user.profile)
+      profileService.getProfileDetailPage(user.profile)
       .then(profileData => {
         setProfile(profileData)
       })

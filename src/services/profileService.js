@@ -34,8 +34,8 @@ function addCocktailToCollection(cocktail) {
   .then(res => res.json())
 }
 
-function getProfileDetail(profile, id) {
-  return fetch(`${BASE_URL}/${id}`,{
+function getProfileDetailPage(profile) {
+  return fetch(`${BASE_URL}`,{
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
@@ -60,5 +60,5 @@ export {
   updateProfile,
   createProfileDetail,
   addCocktailToCollection,
-  getProfileDetail
+  getProfileDetailPage
 }
