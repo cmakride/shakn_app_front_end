@@ -4,29 +4,31 @@ import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 
-const ProfileDetails = (profile) => {
+const ProfileDetails = (props) => {
   const location = useLocation()
-  const profiles = location.state.profile
+  const profile = location.state
 
   return(
-    <div>
+    <>
+      
+    <div className="w-40 p-2 bg-white rounded-xl md:flex md:flex-wrap">
     <div>
   <h1>Profile Details</h1>
 
-  <h3>name: {profiles.name}</h3>
-  <h3>bar: {profiles.bar}</h3>
-  <h3>city: {profiles.city}</h3>
-  <h3>bio: {profiles.bio}</h3>
+  <h3>name: {profile.name}</h3>
+  <h3>bar: {profile.bar}</h3>
+  <h3>city: {profile.city}</h3>
+  <h3>bio: {profile.bio}</h3>
     </div>
-
 
    {/* user.profile === user.profile?._id ? */
   <div>
-  <Link to='/edit' state={{profile}}>Edit</Link>
+  <Link to='/editprofile' state={profile}>Edit</Link>
   </div>
 }
   </div>
-  );
+  </>
+   );
 }
 
 export default ProfileDetails;

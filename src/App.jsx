@@ -11,7 +11,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
-import EditProfile from './pages/EditProfile/EditProfile'
+import ProfileEditForm from './pages/ProfileEditForm/ProfileEditForm'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as cocktailService from './services/cocktails'
@@ -59,13 +59,24 @@ const App = () => {
       })
   }
 
-
-  const handleUpdateProfile = updatedProfileData => {
-    profileService.updateProfile(updatedProfileData)
-      .then(updatedProfile => {
-        setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
-      })
+  const handleEditProfile = updatedProfileData => {
+    profileService.editProfile(updatedProfileData)
+    .then(updatedProfile => {
+      console.log(updatedProfile)
+      setProfile(updatedProfile)
+      const newProfileArray = profiles.map(profile =>
+        profile._id === updatedProfile._id ? updatedProfile : profile)
+        setProfiles(newProfileArray)
+        navigate('/profiles')
+    })
   }
+
+  // const handleUpdateProfile = updatedProfileData => {
+  //   profileService.updateProfile(updatedProfileData)
+  //     .then(updatedProfile => {
+  //       setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
+  //     })
+  // }
 
   const handleAddCocktailFav = cocktail => {
     profileService.addCocktailToCollection(cocktail)
@@ -89,7 +100,7 @@ const App = () => {
   useEffect(() => {
     profileService.getAllProfiles()
       .then(allProfiles => setProfiles(allProfiles))
-  }, [])
+  }, [profile])
 
   useEffect(() => {
     if (user) {
@@ -133,10 +144,6 @@ const App = () => {
             <ProfileDetails />}
           />
 
-          <Route path='/edit' element={
-            <EditProfile handleUpdateProfile={handleUpdateProfile} />}
-          />
-
           <Route
             path='/favorites'
             element={
@@ -167,6 +174,8 @@ const App = () => {
           <Route path='/editcocktail' element={
             <EditCocktail handleUpdateCocktail={handleUpdateCocktail} />}
           />
+
+          <Route path='/editprofile' element={<ProfileEditForm handleEditProfile={handleEditProfile}/>} />
 
           <Route
             path="/changePassword"

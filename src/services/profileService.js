@@ -45,6 +45,20 @@ function removeCocktailFromCollection(cocktail) {
   .then(res => res.json())
 }
 
+function editProfile(profile) {
+  console.log("EDITPROFILE", profile)
+  return fetch(`${BASE_URL}/editProfile`, {
+    method: "PATCH",
+    headers: {
+      Authorization: 
+      `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(profile)
+  })
+  .then(res => res.json())
+}
+
 function updateProfile(profile) {
   return fetch(`${BASE_URL}/${profile.get('_id')}`, {
     method: 'PUT',
@@ -62,5 +76,6 @@ export {
   getProfileDetail,
   updateProfile,
   addCocktailToCollection,
-  removeCocktailFromCollection
+  removeCocktailFromCollection,
+  editProfile
 }
