@@ -18,6 +18,7 @@ function getProfileDetail(id) {
 }
 
 function addCocktailToCollection(cocktail) {
+  console.log(cocktail)
   return fetch(`${BASE_URL}/addCocktail`, {
     method: "POST",
     headers: {
