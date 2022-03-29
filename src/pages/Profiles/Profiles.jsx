@@ -19,7 +19,7 @@ const Profiles = () => {
               <Link
                 key={idx}
                 to='/profile'
-                state={{ profile }}
+                state={ profile }
               >
                 {profile.name}
                 <br></br>
