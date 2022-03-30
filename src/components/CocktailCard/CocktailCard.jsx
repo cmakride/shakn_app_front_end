@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 function CocktailCard({cocktail, handleDeleteCocktail}) {
     return(
-        <div className="w-40 p-2 bg-white rounded-xl md:flex md:flex-wrap">
+        <div className="w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg ">
             <div>
                 <Link to="/cocktail" state={{ cocktail }} className="font-bold text-lg">{cocktail.name}</Link>
             </div>

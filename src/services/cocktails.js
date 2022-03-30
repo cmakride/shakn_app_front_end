@@ -37,7 +37,25 @@ function update(cocktail) {
         .then(res => res.json())
     }
 
+ function createComment(comment, cocktailId, profileId){
+    let commentObject = {}
+    commentObject.comment = comment
+    commentObject.profile = profileId
+    console.log(commentObject)
+    return fetch(`${BASE_URL}/${cocktailId}/comments`, {
+        method: 'POST',
+        headers: {
+            Authorization: 
+            `Bearer ${tokenService.getToken()}`,
+            'content-type': 'application/json',
+          },
+        body: JSON.stringify(commentObject)
+    })
+    .then(res => res.json())
+}
+
 export {
+    createComment,
     update,
     deleteCocktail,
     getDetail,
