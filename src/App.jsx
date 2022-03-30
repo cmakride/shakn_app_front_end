@@ -112,16 +112,14 @@ const App = () => {
   }, [user])
 
 
-
-
   return (
     <>
-      <div className="bg-cyan-600 w-full h-screen">
+      <div className="bg-cyan-600 w-full h-screen container mx-auto mb-8 px-8">
         <NavBar user={user} handleLogout={handleLogout} />
 
-        <Routes>
+        <Routes className="container mx-auto mb-8 px-8">
           <Route path="/" element={
-            <Landing user={user} />}
+            <Landing profile= {profile} user={user} />}
           />
 
           <Route
@@ -140,7 +138,7 @@ const App = () => {
               user ? <Profiles /> : <Navigate to="/login" />}
           />
 
-          <Route path='/profile' element={
+          <Route  path='/profile' element={
             <ProfileDetails />}
           />
 
