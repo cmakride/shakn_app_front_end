@@ -1,5 +1,5 @@
 import * as tokenService from './tokenService'
-const BASE_URL = `/api/cocktails`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/cocktails`
 
 function create(cocktail){
     return fetch(BASE_URL, {
