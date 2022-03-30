@@ -174,7 +174,7 @@ const App = () => {
           />
 
           <Route path='/cocktail' element={
-            <CocktailDetail handleAddComment={handleAddComment} profile={profile}/>}
+            <CocktailDetail handleAddComment={handleAddComment} cocktails={cocktails} profile={profile}/>}
           />
 
           <Route path='/editcocktail' element={
