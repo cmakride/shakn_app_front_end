@@ -32,7 +32,7 @@ const CocktailList = ({cocktails,handleAddCocktailFav,handleRemoveCocktailFav,ha
                    <>
                    <button onClick={()=>handleRemoveCocktailFav(cocktail)}>🖤</button>
                    </>
-                       
+                        
                    }
                    
                    

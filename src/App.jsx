@@ -92,6 +92,13 @@ const App = () => {
       })
   }
 
+  const handleAddComment = (comment, cocktailId, profileId) => {
+    console.log(comment, "COMMENT")
+    console.log(cocktailId, "COCKTAILID")
+    console.log(profileId, "PROFILEID")
+    cocktailService.createComment(comment.comment, cocktailId, profileId)
+}
+
   useEffect(() => {
     cocktailService.getAll()
       .then(allCocktails => setCocktails(allCocktails))
@@ -168,7 +175,7 @@ const App = () => {
           />
 
           <Route path='/cocktail' element={
-            <CocktailDetail />}
+            <CocktailDetail handleAddComment={handleAddComment} profile={profile}/>}
           />
 
           <Route path='/editcocktail' element={
