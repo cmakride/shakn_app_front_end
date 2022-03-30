@@ -41,6 +41,7 @@ const App = () => {
   const handleAddCocktail = newCocktailData => {
     cocktailService.create(newCocktailData)
       .then(newCocktail => setCocktails([...cocktails, newCocktail]))
+      navigate('/cocktails')
   }
 
   const handleDeleteCocktail = id => {
