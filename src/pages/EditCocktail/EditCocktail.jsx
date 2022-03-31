@@ -38,54 +38,9 @@ function EditCocktail(props) {
             <div>
                 <label htmlFor="name-input">Cocktail:</label>
                 <input type="name" name="name" value={formData.name} onChange={handleChange} required/>
+                
             </div>
-            <div>
-                <label htmlFor="method-input">Method:</label>
-                <select name="method"
-                    onChange={handleChange}
-                    value={formData.method}>
-                    <option></option>
-                    <option>Shake</option>
-                    <option>Mixing Glass</option>
-                    <option>Build in Glass</option>
-                </select>
-            </div>
-            <div>
-            <label htmlFor="garnish-input">Garnish:</label>
-            <input
-                    type="text"
-                    name="garnish"
-                    onChange={handleChange}
-                    value={formData.garnish}
-                    required
-                />
-            </div>
-            <div>
-            <label htmlFor="servedin-input">Served in:</label>
-                <select 
-                    name="served_in"
-                    onChange={handleChange}
-                    value={formData.served_in}
-                    required
-                >
-                    <option></option>
-                    <option>Martini Glass</option>
-                    <option>Rocks Glass</option>
-                    <option>Rocks Glass Ice</option>
-                    <option>High Ball</option>
-                    <option>Globe Glass</option>
-                    
-                </select>
-            </div>
-            <div>
-            <label htmlFor="ingredient-input">Ingredients:</label>
-            <input
-                    type="text"
-                    name="ingredient"
-                    value={formData.ingredients}
-                    onChange={handleChange}
-                />
-            </div>
+           
             <div>
             <div>
                 <label htmlFor="photo-upload">

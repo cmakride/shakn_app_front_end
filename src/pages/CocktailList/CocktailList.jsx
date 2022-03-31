@@ -22,7 +22,7 @@ const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav
             <div>
                 {cocktails.map((cocktail,idx) => (
 
-                    <div key={idx} className="w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg ">
+                    <div key={idx} className="w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg float-left">
                         <img src={cocktail.image} alt="cocktail" />
                         <div>
                             <Link to="/cocktail" state={{cocktail}} className="font-bold text-lg">{cocktail.name}</Link>

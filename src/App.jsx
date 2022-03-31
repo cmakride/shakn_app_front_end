@@ -185,6 +185,7 @@ const handleAddRating = (rating, cocktailId,profileId)=>{
             handleAddComment={handleAddComment}
             cocktails ={cocktails}
             profile={profile}
+            user={user}
             handleAddRating ={handleAddRating}
             />}
           />

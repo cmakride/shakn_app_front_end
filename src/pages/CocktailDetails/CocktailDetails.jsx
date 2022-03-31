@@ -50,7 +50,7 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
         currentCocktail ?
             <>
             <div>
-                <img class="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
+                <img className="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
                 <Reviews reviews={reviewsArray}/>
                 <h2>Method: {currentCocktail.method}</h2>
@@ -72,11 +72,11 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
                     <label htmlFor="comment" className="text-lg text-gray-600">Add a comment</label>
 
                     <textarea
-                        name="comment" cols="40" rows="5" class="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+                        name="comment" cols="40" rows="5" className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
                         onChange={handleTextChange}>
                     </textarea>
                     </div>
-                    <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
+                    <button className="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
                 </form>
                 </div>
                 
