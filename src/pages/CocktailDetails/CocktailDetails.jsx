@@ -45,7 +45,8 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
 
         currentCocktail ?
             <>
-                <img src={currentCocktail.image} alt="Cocktail" />
+            <div>
+                <img class="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
                 <Reviews reviews={currentCocktail.reviews}/>
                 <h2>Method: {currentCocktail.method}</h2>
@@ -53,33 +54,38 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
                 <h2>Served in: {currentCocktail.served_in}</h2>
                 <h2>Ingredients: {currentCocktail.ingredients}</h2>
                 <br />
-                <h2>Comments:</h2>
 
-                <form
+                <div class="max-w-lg shadow-md">
+                <form class="w-full p-4"
                     autoComplete='off'
                     ref={formElement}
                     onSubmit={handleCommentSubmit}
                 >
+                    <div class="mb-2">
+                    <label for="comment" class="text-lg text-gray-600">Add a comment</label>
                     <textarea
-                        name="comment" cols="40" rows="5" className="shadow-md border-2 border-black"
+                        name="comment" cols="40" rows="5" class="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
                         onChange={handleTextChange}>
                     </textarea>
-                    <br />
-
-                    <button type="submit" className="w-30 p-1 rounded-xl border-2 border-black bg-blue-500 text-white">Submit</button>
+                    </div>
+                    <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
                 </form>
+                </div>
                 
                 {/* add comment list component here
         pass comment array to comment component as props
         within comment list map through props.commentarray
         */}
+
+            <br></br>
                 <Comments comments = {commentsArray}/>
+            
+        </div>
             </>
             :
             <h4>
                 Cocktail is loading
             </h4>
-
     );
 }
 
