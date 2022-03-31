@@ -1,5 +1,6 @@
 import { CocktailCard } from "../../components/CocktailCard/CocktailCard";
 import { Link } from "react-router-dom"
+import { BsSuitHeart,BsSuitHeartFill } from 'react-icons/bs'
 
 const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav, handleDeleteCocktail, profile }) => {
     // profile.favoriteCocktails.some(id => id ===
@@ -39,11 +40,11 @@ const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav
                         </div>
                         {check(profile.favoriteCocktails, cocktail._id) ?
                             <>
-                                <button onClick={() => handleAddCocktailFav(cocktail)}>♡</button>
+                                <button onClick={() => handleAddCocktailFav(cocktail)}><BsSuitHeart/></button>
                             </>
                             :
                             <>
-                                <button onClick={() => handleRemoveCocktailFav(cocktail)}>🖤</button>
+                                <button onClick={() => handleRemoveCocktailFav(cocktail)}><BsSuitHeartFill/></button>
                             </>
 
                         }
