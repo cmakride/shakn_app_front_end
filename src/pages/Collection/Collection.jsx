@@ -38,7 +38,7 @@ useEffect(()=>{
   
   return ( 
     <>
-     <h1>Favorites List</h1>
+     <h1 className="mt-8 text-center text-3xl font-bold">Favorites List</h1>
         <div>
             {favoriteCocktailsArray.map((cocktail) => (
                 

@@ -125,10 +125,10 @@ const App = () => {
     }
   }, [user])
 
-
+  
   return (
     <>
-      <div className="bg-cyan-600 w-full h-screen container mx-auto mb-8 px-8">
+      <div className= "bg-indigo-200 w-full h-screen container mx-auto mb-8 px-8">
         <NavBar user={user} handleLogout={handleLogout} />
 
         <Routes className="container mx-auto mb-8 px-8">
