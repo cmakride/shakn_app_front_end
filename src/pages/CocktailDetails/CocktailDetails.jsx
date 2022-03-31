@@ -64,7 +64,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handl
                     onSubmit={handleCommentSubmit}
                 >
                     <div className="mb-2">
-                    <label for="comment" className="text-lg text-gray-600">Add a comment</label>
+                    <label htmlFor="comment" className="text-lg text-gray-600">Add a comment</label>
                     <textarea
                         name="comment" cols="40" rows="5" className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
                         onChange={handleTextChange}>
