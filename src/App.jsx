@@ -19,9 +19,9 @@ import * as profileService from './services/profileService'
 
 const App = () => {
   const [cocktails, setCocktails] = useState([])
-  const [cocktailDetail, setCocktailDetail] = useState([])
+  
   const [profiles, setProfiles] = useState({})
-  const [profileDetails, setProfileDetails] = useState([])
+  
 
   const [profile, setProfile] = useState({})
 
@@ -98,6 +98,12 @@ const App = () => {
     console.log(cocktailId, "COCKTAILID")
     console.log(profileId, "PROFILEID")
     cocktailService.createComment(comment.comment, cocktailId, profileId)
+    .then(updatedCocktail=>{
+      console.log(updatedCocktail)
+      const newCocktailArray = cocktails.map(cocktail =>
+        cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail)
+        setCocktails(newCocktailArray)
+    })
 }
 
   useEffect(() => {
@@ -174,7 +180,10 @@ const App = () => {
           />
 
           <Route path='/cocktail' element={
-            <CocktailDetail handleAddComment={handleAddComment} profile={profile}/>}
+            <CocktailDetail 
+            handleAddComment={handleAddComment}
+            cocktails ={cocktails}
+            profile={profile}/>}
           />
 
           <Route path='/editcocktail' element={
