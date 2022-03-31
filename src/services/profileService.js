@@ -43,16 +43,28 @@ function removeCocktailFromCollection(cocktail) {
   .then(res => res.json())
 }
 
+// function editProfile(profile) {
+//   console.log("EDITPROFILE", profile)
+//   return fetch(`${BASE_URL}/editProfile`, {
+//     method: "PATCH",
+//     headers: {
+//       Authorization: 
+//       `Bearer ${tokenService.getToken()}`,
+//     },
+//     body: profile
+//   })
+//   .then(res => res.json())
+// }
+
 function editProfile(profile) {
-  console.log("EDITPROFILE", profile)
-  return fetch(`${BASE_URL}/editProfile`, {
-    method: "PATCH",
+  console.log(profile.get('name'))
+  return fetch(`${BASE_URL}/${profile.get('_id')}`, {
+    method: "PUT",
     headers: {
       Authorization: 
       `Bearer ${tokenService.getToken()}`,
-      'content-type': 'application/json',
     },
-    body: JSON.stringify(profile)
+    body: profile
   })
   .then(res => res.json())
 }
