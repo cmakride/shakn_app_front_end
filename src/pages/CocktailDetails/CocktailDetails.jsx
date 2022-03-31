@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import Comments from '../../components/Comments/Comments';
 
 
 function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, profile }) {
@@ -64,10 +65,12 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
 
                     <button type="submit" className="w-30 p-1 rounded-xl border-2 border-black bg-blue-500 text-white">Submit</button>
                 </form>
+                
                 {/* add comment list component here
         pass comment array to comment component as props
         within comment list map through props.commentarray
         */}
+                <Comments comments = {commentsArray}/>
             </>
             :
             <h4>
