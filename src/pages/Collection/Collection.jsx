@@ -9,9 +9,9 @@ const Collection = ({cocktails,profile, handleAddCocktailFav,handleRemoveCocktai
 
 const [favoriteCocktailsArray, setFavoriteCocktailsArray] = useState([])
 
+//!useeffect to get the cocktail information from each id in the profile.favoriteCocktails array, should be reset each time this array changes and when page is reloaded
 useEffect(()=>{
   let tempArray = []
-
   let favoritesArray = profile.favoriteCocktails
   favoritesArray.forEach(id => {
     cocktails.forEach(cocktail=>{
@@ -23,6 +23,8 @@ useEffect(()=>{
   })
   setFavoriteCocktailsArray(tempArray)
 },[profile.favoriteCocktails])
+
+
 
  //!function checking if in the collection or not
  function check(array,cocktailId){
@@ -40,24 +42,14 @@ useEffect(()=>{
     <>
      <h1 className="mt-8 text-center text-3xl font-bold">Favorites List</h1>
         <div>
-            {favoriteCocktailsArray.map((cocktail) => (
+            {favoriteCocktailsArray.map((cocktail,idx) => (
                 
-                <div key={cocktail._id} >
-                   <CocktailCard handleAddCocktailFav={handleAddCocktailFav} key={cocktail._id} cocktail={cocktail}
-                   handleDeleteCocktail={handleDeleteCocktail}
+                <div key={idx} >
+                   <CocktailCard profile={profile} cocktail={cocktail}
+                   handleRemoveCocktailFav={handleRemoveCocktailFav}
+                   handleAddCocktailFav ={handleAddCocktailFav}
                    />
                 
-                   {check(profile.favoriteCocktails,cocktail._id) ? 
-                   <>
-                   <button onClick={()=>handleAddCocktailFav(cocktail)}>♡</button>
-                   </>
-                   :
-                   <>
-                   <button onClick={()=>handleRemoveCocktailFav(cocktail)}>🖤</button>
-                   </>
-                       
-                   }
-                   
                    
                 </div>
             ))}
