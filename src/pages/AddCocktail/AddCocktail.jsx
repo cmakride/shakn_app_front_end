@@ -174,15 +174,15 @@ function AddCocktail(props) {
                 ))}
             </ul>
             {/* Upload Photo Form */}
-            <div className="form-group mb-4">
-                <label htmlFor="photo-upload" className="form-label">
+            <div>
+                <label htmlFor="photo-upload">
                     Upload Photo
                 </label>
                 <input
                     type="file"
                     className="form-control"
                     id="photo-upload"
-                    name="photo"
+                    name="image"
                     onChange={handleChangePhoto}
                 />
             </div>

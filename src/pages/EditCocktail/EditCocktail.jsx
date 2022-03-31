@@ -17,9 +17,20 @@ function EditCocktail(props) {
         formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
     }, [formData])
     
+    const handleChangePhoto = (evt) => {
+        setFormData({...formData, photo: evt.target.files[0]})
+    }
+
     const handleSubmit = evt => {
         evt.preventDefault()
-        props.handleUpdateCocktail(formData)
+        const cocktailFormData = new FormData()
+        cocktailFormData.append('image', formData.photo)
+        cocktailFormData.append('name', formData.name)
+        cocktailFormData.append('method', formData.method)
+        cocktailFormData.append('served_in', formData.served_in)
+        cocktailFormData.append('garnish', formData.garnish)
+        cocktailFormData.append('_id', formData._id)
+        props.handleUpdateCocktail(cocktailFormData)
     }
 
     return (
@@ -29,6 +40,20 @@ function EditCocktail(props) {
             <div>
                 <label htmlFor="name-input">Cocktail:</label>
                 <input type="name" name="name" value={formData.name} onChange={handleChange} required/>
+            </div>
+            <div>
+            <div>
+                <label htmlFor="photo-upload">
+                    Upload Photo:
+                </label>
+                <input
+                    type="file"
+                    className="form-control"
+                    id="photo-upload"
+                    name="image"
+                    onChange={handleChangePhoto}
+                />
+            </div>
             </div>
             <div>
                 <button type="submit" disabled={!validForm}>

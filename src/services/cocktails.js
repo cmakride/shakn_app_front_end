@@ -29,10 +29,11 @@ function deleteCocktail(id) {
 }
 
 function update(cocktail) {
-    return fetch(`${BASE_URL}/${cocktail._id}`, {
+    console.log(cocktail.get('_id'))
+    return fetch(`${BASE_URL}/${cocktail.get('_id')}`, {
         method: 'PUT',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(cocktail)
+        headers: {'Authorization': `Bearer ${tokenService.getToken()}`},
+        body: cocktail
       })
         .then(res => res.json())
     }
