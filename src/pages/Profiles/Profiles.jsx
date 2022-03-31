@@ -12,6 +12,8 @@ const Profiles = () => {
 
   return (
     <>
+
+    
       <h1 className="mt-8 text-center text-3xl font-bold">List of all the profiles</h1>
         {profiles.length ?
           <>
@@ -22,9 +24,8 @@ const Profiles = () => {
                 to='/profile'
                 state={ profile }
               >
-                <div className= "w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1">
-                {profile.name}
-                <br></br>
+                <div className= "w-40 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1 md:flex md:flex-wrap">
+                <h4 className="mt-8 text-center text-xl font-bold">{profile.name}</h4><img className="object-scale-down h-26 w-50" src={profile.photo} alt="avatar" />
                 </div>
               </Link>
             ))}
