@@ -50,6 +50,7 @@ const App = () => {
   }
 
   const handleUpdateCocktail = updatedCocktailData => {
+    console.log(updatedCocktailData)
     cocktailService.update(updatedCocktailData)
       .then(updatedCocktail => {
         const newCocktailArray = cocktails.map(cocktail =>
