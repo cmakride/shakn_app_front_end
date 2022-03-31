@@ -8,7 +8,8 @@ const Comments = ({comments}) => {
     {comments.length ?
     <>
     {comments.map((comment,idx)=>
-  <div class= "w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1" key={idx}>
+  <div className= "w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1" key={idx}>
+    <p>user: {comment.profile}</p>
     <p>{comment.comment}</p>
     
 
