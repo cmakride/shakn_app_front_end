@@ -98,10 +98,11 @@ function AddCocktail(props) {
 
     return (
         <>
-            <h1>New Cocktail</h1>
+        <div class="container mx-auto px-4" >
+            <h1 className="mt-8 text-center text-3xl font-bold">New Cocktail</h1>
             <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
-                <label htmlFor="name-input">Cocktail Name:</label>
-                <input
+                <label className="mt-8 text text-2xl font-bold" htmlFor="name-input">Cocktail Name:</label>
+                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="name"
                     onChange={handleChange}
@@ -109,8 +110,8 @@ function AddCocktail(props) {
                 />
 
                 <br />
-                <label htmlFor="method-input">Method:</label>
-                <select name="method"
+                <label className="mt-8 text text-2xl font-bold" htmlFor="method-input">Method:</label>
+                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="method"
                     onChange={handleChange}
                     value={formData.method}>
                     <option></option>
@@ -118,16 +119,17 @@ function AddCocktail(props) {
                     <option>Mixing Glass</option>
                     <option>Build in Glass</option>
                 </select> <br />
-                <label htmlFor="garnish-input">Garnish:</label>
+                <label className="mt-8 text text-2xl font-bold" htmlFor="garnish-input">Garnish:</label>
                 <input
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="garnish"
                     onChange={handleChange}
                     value={formData.garnish}
                     required
                 /> <br />
-                <label htmlFor="servedin-input">Served in:</label>
-                <select
+                <label  className="mt-8 text text-2xl font-bold" htmlFor="servedin-input">Served in:</label>
+                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     name="served_in"
                     onChange={handleChange}
                     value={formData.served_in}
@@ -139,8 +141,9 @@ function AddCocktail(props) {
                     <option>Rocks Glass Ice</option>
                     <option>High Ball</option>
                     <option>Globe Glass</option>
+                    
                 </select> <br />
-                <button type='submit'
+                <button className="text-white bg-yellow-500 p-2 rounded-md" type='submit'
                     disabled={!validForm}
                 >Add Cocktail</button>
             </form><br />
@@ -149,20 +152,21 @@ function AddCocktail(props) {
                 ref={formElementIng}
                 onSubmit={handleIngredientAdd}>
                 <h4
-                    hidden={enoughIngredients()}>Please Add an Ingredient</h4>
+                    hidden={enoughIngredients()} className="mt-8 text text-2xl font-bold">Please Add an Ingredient</h4>
                 <input
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="ingredient"
                     value={inputValue}
                     onChange={handleIngredientChange}
                 /> <br />
-                <button type='submit'
+                <button className="text-white bg-yellow-500 p-2 rounded-md" type='submit'
 
                 >
                     Add Ingredient
                 </button>
             </form>
-            <h4>Ingredients</h4>
+            <h4 className="mt-8 text text-2xl font-bold">Ingredients</h4>
             <ul>
                 {arrayIngredients.map((ingredient, idx) => (
                     <li key={idx}>
@@ -174,18 +178,19 @@ function AddCocktail(props) {
                 ))}
             </ul>
             {/* Upload Photo Form */}
-            <div className="form-group mb-4">
-                <label htmlFor="photo-upload" className="form-label">
+            <div className="form-group mb-4 mt-1 text-sm text-gray-500 dark:text-gray-300">
+                <label htmlFor="photo-upload" className="mt-8 text text-2xl font-bold">
                     Upload Photo
                 </label>
-                <input
+                <input className="mt-8 text text-2xl font-bold bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     type="file"
-                    className="form-control"
+                    // className="form-control"
                     id="photo-upload"
                     name="photo"
                     onChange={handleChangePhoto}
                 />
             </div>
+    </div>
         </>
     );
 }
