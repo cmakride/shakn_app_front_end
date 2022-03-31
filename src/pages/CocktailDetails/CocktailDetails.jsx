@@ -18,8 +18,9 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
     const commentsArray = currentCocktail?.comments
     //!Array of Comments for this cocktail
     
-    const reviewsArray = currentCocktail?.comments
+    const reviewsArray = currentCocktail?.reviews
     //!Array of Reviews for this cocktail
+
     const [formData, setFormData] = useState({
         comment: ''
     })
@@ -48,7 +49,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
             <div>
                 <img class="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
-                <Reviews reviews={currentCocktail.reviews}/>
+                <Reviews reviews={reviewsArray}/>
                 <h2>Method: {currentCocktail.method}</h2>
                 <h2>Garnish: {currentCocktail.garnish}</h2>
                 <h2>Served in: {currentCocktail.served_in}</h2>
