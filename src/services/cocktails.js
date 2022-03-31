@@ -53,6 +53,22 @@ function update(cocktail) {
     })
     .then(res => res.json())
 }
+function createReview(rating, cocktailId, profileId){
+    let ratingObject = {}
+    ratingObject.rating = rating
+    ratingObject.profile = profileId
+    console.log(ratingObject)
+    return fetch(`${BASE_URL}/${cocktailId}/reviews`, {
+        method: 'POST',
+        headers: {
+            Authorization: 
+            `Bearer ${tokenService.getToken()}`,
+            'content-type': 'application/json',
+          },
+        body: JSON.stringify(ratingObject)
+    })
+    .then(res => res.json())
+}
 
 export {
     createComment,
@@ -60,5 +76,6 @@ export {
     deleteCocktail,
     getDetail,
     create,
-    getAll
+    getAll,
+    createReview
 }
