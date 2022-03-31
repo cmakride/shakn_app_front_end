@@ -1,18 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Comments from '../../components/Comments/Comments';
 import Reviews from '../../components/Reviews/Reviews';
-import MakeReview from '../../components/MakeReview/MakeReview';
 
 
-function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handleAddComment, profile }) {
+function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, profile }) {
     //!As cocktails are being updated by the adding of a comment, 
     //! cocktails details is being refreshed because cocktails is a prop
     
     const formElement = useRef()
     const location = useLocation()
-
-    const profileId = profile?._id
 
     const cocktailId = location.state.cocktail._id
 
@@ -29,6 +26,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handl
     })
 
 
+
     const handleTextChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
@@ -39,6 +37,8 @@ function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handl
     }
 
 
+    
+    // if(!currentCocktail)return <h1>Hello</h1>
 
 
     //! this ternary is saying if current cocktail exists this will be loaded, if does not exists it will go to a loading text and react will wait and check if it does load
@@ -47,7 +47,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handl
         currentCocktail ?
             <>
             <div>
-                <img className="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
+                <img class="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
                 <Reviews reviews={reviewsArray}/>
                 <h2>Method: {currentCocktail.method}</h2>
@@ -55,26 +55,32 @@ function CocktailDetail({ cocktails, handleAddCocktailFav,handleAddRating, handl
                 <h2>Served in: {currentCocktail.served_in}</h2>
                 <h2>Ingredients: {currentCocktail.ingredients}</h2>
                 <br />
-                <MakeReview handleAddRating={handleAddRating}reviews={reviewsArray} profileId = {profileId} cocktailId={currentCocktail._id}/>
 
-                <div className="max-w-lg shadow-md">
-                <form className="w-full p-4"
+                <div class="max-w-lg shadow-md">
+                <form class="w-full p-4"
                     autoComplete='off'
                     ref={formElement}
                     onSubmit={handleCommentSubmit}
                 >
+
+                    
+
                     <div className="mb-2">
                     <label htmlFor="comment" className="text-lg text-gray-600">Add a comment</label>
+
                     <textarea
-                        name="comment" cols="40" rows="5" className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+                        name="comment" cols="40" rows="5" class="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
                         onChange={handleTextChange}>
                     </textarea>
                     </div>
-                    <button className="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
+                    <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
                 </form>
                 </div>
                 
-                
+                {/* add comment list component here
+        pass comment array to comment component as props
+        within comment list map through props.commentarray
+        */}
 
             <br></br>
                 <Comments comments = {commentsArray}/>
