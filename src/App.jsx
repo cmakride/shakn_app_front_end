@@ -72,12 +72,7 @@ const App = () => {
     })
   }
 
-  // const handleUpdateProfile = updatedProfileData => {
-  //   profileService.updateProfile(updatedProfileData)
-  //     .then(updatedProfile => {
-  //       setProfiles(profile => profile._id === updatedProfile._id ? updatedProfile : profile)
-  //     })
-  // }
+  
 
   const handleAddCocktailFav = cocktail => {
     profileService.addCocktailToCollection(cocktail)
@@ -104,6 +99,19 @@ const App = () => {
         cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail)
         setCocktails(newCocktailArray)
     })
+}
+
+const handleAddRating = (rating, cocktailId,profileId)=>{
+  console.log("RATING",rating)
+  console.log("COCKTAILID",cocktailId)
+  console.log("PROFILEID",profileId)
+  cocktailService.createReview(rating,cocktailId,profileId)
+  .then(updatedCocktail=>{
+    console.log("UPDATED COCKTAIL",updatedCocktail)
+    const newCocktailArray = cocktails.map(cocktail =>
+      cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail)
+      setCocktails(newCocktailArray)
+  })
 }
 
   useEffect(() => {
@@ -183,7 +191,9 @@ const App = () => {
             <CocktailDetail 
             handleAddComment={handleAddComment}
             cocktails ={cocktails}
-            profile={profile}/>}
+            profile={profile}
+            handleAddRating ={handleAddRating}
+            />}
           />
 
           <Route path='/editcocktail' element={
