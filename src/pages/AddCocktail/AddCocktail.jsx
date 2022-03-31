@@ -58,10 +58,10 @@ function AddCocktail(props) {
         evt.preventDefault()
         //!adding the ingredient in form to the arrayIngredients in state
         setArrayIngredients(arrayIngredients => [...arrayIngredients, formDataIngredient.ingredient])
-        setInputValue("")
+        setInputValue("")    
     }
 
-
+                                                              
 
     const handleRemoveIngredient = (id) => {
         const newArray = arrayIngredients

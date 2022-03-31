@@ -23,7 +23,7 @@ const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav
 
                     <div key={idx} className="w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg ">
                         <div>
-                            <Link to="/cocktail" state={{ cocktail }} className="font-bold text-lg">{cocktail.name}</Link>
+                            <Link to="/cocktail" state={{cocktail}} className="font-bold text-lg">{cocktail.name}</Link>
                         </div>
                         <div>
                             {((cocktail.profile._id === profile._id)||(cocktail.profile === profile._id)) ?
