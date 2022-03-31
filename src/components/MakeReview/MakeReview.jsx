@@ -7,11 +7,6 @@ export const MakeReview = ({ reviews, profileId, cocktailId, handleAddRating }) 
  
   const myReview = reviews.find(c => c.profile === profileId)
 
-  
-
-  console.log(myReview)
-
-
   function handleRatingSubmit(evt) {
     evt.preventDefault()
     handleAddRating(yourReview, cocktailId, profileId)

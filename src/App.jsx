@@ -89,12 +89,8 @@ const App = () => {
   }
 
   const handleAddComment = (comment, cocktailId, profileId) => {
-    console.log(comment, "COMMENT")
-    console.log(cocktailId, "COCKTAILID")
-    console.log(profileId, "PROFILEID")
     cocktailService.createComment(comment.comment, cocktailId, profileId)
     .then(updatedCocktail=>{
-      console.log(updatedCocktail)
       const newCocktailArray = cocktails.map(cocktail =>
         cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail)
         setCocktails(newCocktailArray)
@@ -102,12 +98,8 @@ const App = () => {
 }
 
 const handleAddRating = (rating, cocktailId,profileId)=>{
-  console.log("RATING",rating)
-  console.log("COCKTAILID",cocktailId)
-  console.log("PROFILEID",profileId)
   cocktailService.createReview(rating,cocktailId,profileId)
   .then(updatedCocktail=>{
-    console.log("UPDATED COCKTAIL",updatedCocktail)
     const newCocktailArray = cocktails.map(cocktail =>
       cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail)
       setCocktails(newCocktailArray)
