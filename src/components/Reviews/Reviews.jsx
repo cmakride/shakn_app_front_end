@@ -1,31 +1,52 @@
-import { React, useState } from 'react'
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
+import { React, useState, useEffect } from 'react'
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs'
 
 const Reviews = ({ reviews }) => {
   const [number, setNumber] = useState(0)
 
+  const total = reviews.reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue.rating
+  }, 0)
   
+
+  useEffect(()=>{
+    const average = total/reviews.length
+    setNumber(average)
+  },[total])
   
+
   return (
 
-    <div style={{display:"flex"}}>
-      {Array(5).fill().map((_, index) => 
+    <div style={{ display: "flex" }}>
+      {Array(5).fill().map((_, index) =>
         <div key={index}>
 
-        {number >= index + 1 ? 
-        
-        <AiFillStar onClick={()=> setNumber(index +1)}/>
-        
-        :
-        
-        <AiOutlineStar 
-        onClick={()=> setNumber(index +1)}/>
-        
-        }
+          {(number >= (index + 1)) ?
+
+            <>
+              <BsStarFill />
+            </>
+
+            :
+
+            <>
+              {(number >= (index + .5)) ?
+                <>
+                  <BsStarHalf />
+                </>
+                :
+                <>
+                  <BsStar />
+                </>
+
+              }
+            </>
+          }
+
 
         </div>
       )}
-      
+
     </div>
   )
 }
