@@ -98,11 +98,11 @@ function AddCocktail(props) {
 
     return (
         <>
-        <div class="container mx-auto px-4" >
+        <div className="container mx-auto px-4" >
             <h1 className="mt-8 text-center text-3xl font-bold">New Cocktail</h1>
             <form autoComplete='off' ref={formElement} onSubmit={handleSubmit}>
                 <label className="mt-8 text text-2xl font-bold" htmlFor="name-input">Cocktail Name:</label>
-                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="name"
                     onChange={handleChange}
@@ -111,7 +111,7 @@ function AddCocktail(props) {
 
                 <br />
                 <label className="mt-8 text text-2xl font-bold" htmlFor="method-input">Method:</label>
-                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="method"
+                <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="method"
                     onChange={handleChange}
                     value={formData.method}>
                     <option></option>
@@ -121,7 +121,7 @@ function AddCocktail(props) {
                 </select> <br />
                 <label className="mt-8 text text-2xl font-bold" htmlFor="garnish-input">Garnish:</label>
                 <input
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="garnish"
                     onChange={handleChange}
@@ -129,7 +129,7 @@ function AddCocktail(props) {
                     required
                 /> <br />
                 <label  className="mt-8 text text-2xl font-bold" htmlFor="servedin-input">Served in:</label>
-                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     name="served_in"
                     onChange={handleChange}
                     value={formData.served_in}
@@ -154,7 +154,7 @@ function AddCocktail(props) {
                 <h4
                     hidden={enoughIngredients()} className="mt-8 text text-2xl font-bold">Please Add an Ingredient</h4>
                 <input
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     type="text"
                     name="ingredient"
                     value={inputValue}

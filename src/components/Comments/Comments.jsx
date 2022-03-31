@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
+const Comments = ({comments}) => {
 
-const Comments = ({comments, user}) => {
-
-  console.log(comments)
-  console.log(user)
 
 
   return ( 
@@ -12,7 +8,7 @@ const Comments = ({comments, user}) => {
     <>
     {comments.map((comment,idx)=>
   <div className= "w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1" key={idx}>
-    <p>user: {user.name}</p>
+    <p>user: {comment.profile.name}</p>
     <p>{comment.comment}</p>
     
 

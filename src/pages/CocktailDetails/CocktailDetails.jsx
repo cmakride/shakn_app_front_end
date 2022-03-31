@@ -47,7 +47,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
         currentCocktail ?
             <>
             <div>
-                <img class="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
+                <img className="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
                 <Reviews reviews={reviewsArray}/>
                 <h2>Method: {currentCocktail.method}</h2>
@@ -56,8 +56,8 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
                 <h2>Ingredients: {currentCocktail.ingredients}</h2>
                 <br />
 
-                <div class="max-w-lg shadow-md">
-                <form class="w-full p-4"
+                <div className="max-w-lg shadow-md">
+                <form className="w-full p-4"
                     autoComplete='off'
                     ref={formElement}
                     onSubmit={handleCommentSubmit}
@@ -69,11 +69,11 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
                     <label htmlFor="comment" className="text-lg text-gray-600">Add a comment</label>
 
                     <textarea
-                        name="comment" cols="40" rows="5" class="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+                        name="comment" cols="40" rows="5" className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
                         onChange={handleTextChange}>
                     </textarea>
                     </div>
-                    <button class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
+                    <button className="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded" type="submit" >Comment</button>
                 </form>
                 </div>
                 
@@ -83,7 +83,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
         */}
 
             <br></br>
-                <Comments comments = {commentsArray} user={user} profile={profile}/>
+                <Comments comments = {commentsArray}/>
             
         </div>
             </>
