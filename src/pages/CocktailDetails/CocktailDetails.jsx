@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Comments from '../../components/Comments/Comments';
 import Reviews from '../../components/Reviews/Reviews';
+import MakeReview from '../../components/MakeReview/MakeReview';
 
-
-function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, profile, user }) {
+function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handleAddComment, profile }) {
     //!As cocktails are being updated by the adding of a comment, 
     //! cocktails details is being refreshed because cocktails is a prop
     
@@ -13,10 +13,13 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
 
     const cocktailId = location.state.cocktail._id
 
+    const profileId = profile?._id
+    
     const currentCocktail = cocktails.find(c => c._id === cocktailId)
     
     const commentsArray = currentCocktail?.comments
     //!Array of Comments for this cocktail
+
     
     const reviewsArray = currentCocktail?.reviews
     //!Array of Reviews for this cocktail
@@ -55,9 +58,9 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
                 <h2>Served in: {currentCocktail.served_in}</h2>
                 <h2>Ingredients: {currentCocktail.ingredients}</h2>
                 <br />
-
-                <div className="max-w-lg shadow-md">
-                <form className="w-full p-4"
+                <MakeReview handleAddRating={handleAddRating}reviews={reviewsArray} profileId = {profileId} cocktailId={currentCocktail._id}/>
+                <div class="max-w-lg shadow-md">
+                <form class="w-full p-4"
                     autoComplete='off'
                     ref={formElement}
                     onSubmit={handleCommentSubmit}

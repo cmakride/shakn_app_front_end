@@ -7,8 +7,6 @@ function EditCocktail(props) {
     const [validForm, setValidForm] = useState(true)
     const formElement = useRef()
 
-    console.log(location.state)
-
     const handleChange = evt => {
         setFormData({...formData, [evt.target.name]: evt.target.value })
     }
