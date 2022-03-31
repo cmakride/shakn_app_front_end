@@ -186,7 +186,7 @@ function AddCocktail(props) {
                     type="file"
                     // className="form-control"
                     id="photo-upload"
-                    name="photo"
+                    name="image"
                     onChange={handleChangePhoto}
                 />
             </div>
