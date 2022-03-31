@@ -16,7 +16,7 @@ const NavBar = ({ user, handleLogout }) => {
           <div className="HAMBURGER-ICON space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
           
         
-            <ion-icon name="wine-outline"></ion-icon>
+            <ion-icon size="large" name="wine-outline"></ion-icon>
             <br></br>
               <NavLink to='/'>Shakn</NavLink>
   
@@ -71,7 +71,7 @@ const NavBar = ({ user, handleLogout }) => {
                 to="/profiles"
                 className="text-xl hover:text-orange-600 duration-300"
               >
-                Profiles
+                Community
               </NavLink>
             </li>
             <li className="border-b border-gray-400 my-8 uppercase">
@@ -107,8 +107,7 @@ const NavBar = ({ user, handleLogout }) => {
 
           <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
 
-          <ion-icon name="wine-outline"></ion-icon>
-            <br></br>
+          <ion-icon size="large" name="wine-outline"></ion-icon>
               <NavLink to='/'>Shakn</NavLink>
 
           <li className="border-b border-gray-400 my-8 uppercase">
@@ -133,7 +132,7 @@ const NavBar = ({ user, handleLogout }) => {
                 to="/profiles"
                 className="text-xl hover:text-orange-600 duration-300"
               >
-                Profiles
+                Community
               </NavLink>
             </li>
             <li className="border-b border-gray-400 my-8 uppercase">
@@ -192,17 +191,14 @@ const NavBar = ({ user, handleLogout }) => {
           <section className="MOBILE-MENU flex lg:hidden">
           <div lassName="HAMBURGER-ICON space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
 
-          <ion-icon name="wine-outline"></ion-icon>
+          <ion-icon size="large" name="wine-outline" ></ion-icon>
             <br></br>
               <NavLink to='/'>Shakn</NavLink>
   
-
             <span className="text-2xl cursor-pointer mr-1 pt-2"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-
-            
 
           </div>
 
@@ -243,7 +239,7 @@ const NavBar = ({ user, handleLogout }) => {
                 to="/profiles"
                 className="text-xl hover:text-orange-600 duration-300"
               >
-                Profiles
+                Community
               </NavLink>
             </li>
           </ul>
@@ -252,7 +248,7 @@ const NavBar = ({ user, handleLogout }) => {
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
           
-        <ion-icon name="wine-outline"></ion-icon>
+        <ion-icon size="large" name="wine-outline"></ion-icon>
             <br></br>
               <NavLink to='/'>Shakn</NavLink>
 
@@ -269,7 +265,7 @@ const NavBar = ({ user, handleLogout }) => {
                 to="/profiles"
                 className="text-xl hover:text-orange-600 duration-300"
               >
-                Profiles
+                Community
               </NavLink>
         </li>
         </ul>

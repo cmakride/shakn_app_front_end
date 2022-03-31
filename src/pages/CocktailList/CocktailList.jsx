@@ -18,7 +18,7 @@ const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav
 
     return (
         <>
-            <h1>Cocktail List</h1>
+            <h1 className="mt-8 text-center text-3xl font-bold">Cocktail List</h1>
             <div>
                 {cocktails.map((cocktail,idx) => (
 
