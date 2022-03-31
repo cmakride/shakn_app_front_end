@@ -4,7 +4,7 @@ import Comments from '../../components/Comments/Comments';
 import Reviews from '../../components/Reviews/Reviews';
 
 
-function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, profile }) {
+function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, profile, user }) {
     //!As cocktails are being updated by the adding of a comment, 
     //! cocktails details is being refreshed because cocktails is a prop
     
@@ -83,7 +83,7 @@ function CocktailDetail({ cocktails, handleAddCocktailFav, handleAddComment, pro
         */}
 
             <br></br>
-                <Comments comments = {commentsArray}/>
+                <Comments comments = {commentsArray} user={user} profile={profile}/>
             
         </div>
             </>
