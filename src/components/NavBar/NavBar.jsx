@@ -10,16 +10,16 @@ const NavBar = ({ user, handleLogout }) => {
     <>
 
       {user ? (
-        <div className="flex items-center justify-between border-b p-5 border-gray-400 py-8 bg-white shadow">
+        <div className="flex items-center justify-between border-b p-5 border-gray-400 py-8 bg-white opacity-90 shadow w-full">
         <nav>
           <section className="MOBILE-MENU flex lg:hidden">
           <div className="HAMBURGER-ICON space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
           
-        
-            <ion-icon size="large" name="wine-outline"></ion-icon>
+            
+            <ion-icon size="-large" name="wine-outline"></ion-icon>
             <br></br>
               <NavLink to='/'>Shakn</NavLink>
-  
+              
 
             <span className="text-2xl cursor-pointer mr-1 pt-2"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
