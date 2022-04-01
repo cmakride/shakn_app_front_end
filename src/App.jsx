@@ -154,7 +154,9 @@ const handleAddRating = (rating, cocktailId,profileId)=>{
           />
 
           <Route  path='/profile' element={
-            <ProfileDetails />}
+            <ProfileDetails 
+            profile={profile}
+            user={user} />}
           />
 
           <Route
