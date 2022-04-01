@@ -49,9 +49,9 @@ const App = () => {
       .then(deletedCocktail => setCocktails(cocktails.filter(cocktail => cocktail._id !== deletedCocktail._id)))
   }
 
-  const handleUpdateCocktail = updatedCocktailData => {
-    console.log(updatedCocktailData)
-    cocktailService.update(updatedCocktailData)
+  const handleUpdateCocktail = (updatedCocktailData,cocktailId) => {
+    
+    cocktailService.update(updatedCocktailData,cocktailId)
       .then(updatedCocktail => {
         const newCocktailArray = cocktails.map(cocktail =>
           cocktail._id === updatedCocktail._id ? updatedCocktail : cocktail
@@ -194,7 +194,8 @@ const handleAddRating = (rating, cocktailId,profileId)=>{
           />
 
           <Route path='/editcocktail' element={
-            <EditCocktail handleUpdateCocktail={handleUpdateCocktail} />}
+            <EditCocktail handleUpdateCocktail={handleUpdateCocktail}
+            />}
           />
 
           <Route path='/editprofile' element={<ProfileEditForm handleEditProfile={handleEditProfile}/>} />
