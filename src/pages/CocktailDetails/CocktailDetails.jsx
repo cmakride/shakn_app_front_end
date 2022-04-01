@@ -50,7 +50,7 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
         currentCocktail ?
             <>
             <div>
-                <img className="object-scale-down h-48 w-96" src={currentCocktail.image} alt="Cocktail" />
+                <img className="object-scale-down h-48 w-96, w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg float-left" src={currentCocktail.image} alt="Cocktail" />
                 <h1>{currentCocktail.name}</h1>
                 <Reviews reviews={reviewsArray}/>
                 <h2>Method: {currentCocktail.method}</h2>

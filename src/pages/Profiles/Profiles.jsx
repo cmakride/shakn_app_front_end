@@ -17,9 +17,9 @@ const Profiles = () => {
       <h1 className="mt-8 text-center text-3xl font-bold">List of all the profiles</h1>
         {profiles.length ?
           <>
-    
+      <div className="grid grid-cols-4 gap-4 ">
             {profiles.map((profile, idx) => (
-      <div className= "w-40 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1 md:flex md:flex-wrap">
+      <div className="w-40 p-2 bg-white rounded-xl md:flex md:flex-wrap">
               <Link
                 key={idx}
                 to='/profile'
@@ -29,6 +29,7 @@ const Profiles = () => {
               </Link>
                 </div>
             ))}
+            </div>
           </>
           :
           <>
