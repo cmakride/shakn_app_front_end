@@ -6,18 +6,31 @@ Welcome to Shakn! A mobile cocktail sharing app created by [Jaeyoung Choi](https
 Check out our Trello board and planning materials [here](https://trello.com/b/L6dbiTqe/cocktail-app-p3)
 
 ## How it's going 💻
-![Imgur](https://i.imgur.com/PlixQPP.png)
+![Imgur](https://imgur.com/oBCZi2j.png)
 ![Imgur](https://i.imgur.com/DBJeufn.png)
 
 ## Technologies Used 🛠
 
-React | tailwindcss | GitHub | Node.JS | Express.JS | MongoDB | Heroku | Microsoft Azure | 
+we used cloudinary for image upload functionality
+
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
 
 ## Credits 🖤
 
 
 ## Icebox Items 🧊 
 
-- Allow users to add their favorite recipes to their profile page
 - Implement search functionality
 - Use an email verification API
+- deploy using netify instead heroku
+- Load Comments button option in cocktail details
+- make uploading picture required
+- can see cocktail list without logged in
