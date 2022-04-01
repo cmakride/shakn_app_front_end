@@ -6,15 +6,15 @@ Welcome to Shakn! A mobile cocktail sharing app created by [Jaeyoung Choi](https
 Check out our Trello board and planning materials [here](https://trello.com/b/L6dbiTqe/cocktail-app-p3)
 
 ## How it's going 💻
-![screenshot of landing page ]()
-![screenshot of cocktail list]()
+![Imgur](https://imgur.com/a/Jdr6cVy)
+![Imgur](https://imgur.com/a/hQxBJ4E)
 
 ## Technologies Used 🛠
 
 React | tailwindcss | GitHub | Node.JS | Express.JS | MongoDB | Heroku | Microsoft Azure | 
 
 ## Credits 🖤
-Any extra resources we used
+
 
 ## Icebox Items 🧊 
 
