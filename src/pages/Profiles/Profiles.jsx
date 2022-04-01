@@ -13,11 +13,9 @@ const Profiles = () => {
   return (
     <>
 
-    
-      <h1 className="mt-8 text-center text-3xl font-bold">List of all the profiles</h1>
         {profiles.length ?
           <>
-      <div className="grid grid-cols-4 gap-4 ">
+      <div className="grid gap-4 pt-10 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
             {profiles.map((profile, idx) => (
       <div className="w-40 p-2 bg-white rounded-xl md:flex md:flex-wrap">
               <Link
@@ -25,7 +23,7 @@ const Profiles = () => {
                 to='/profile'
                 state={ profile }
               >
-                <h4 className="mt-8 text-center text-xl font-bold">{profile.name}</h4><img className="object-scale-down h-26 w-50" src={profile.photo} alt="avatar" />
+                <img className="object-scale-down h-26 w-50" src={profile.photo} alt="avatar" /><h4 className="mt-8 text-center text-xl font-bold">{profile.name}</h4>
               </Link>
                 </div>
             ))}

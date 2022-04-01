@@ -178,7 +178,7 @@ function AddCocktail(props) {
                 ))}
             </ul>
             {/* Upload Photo Form */}
-            <div className="form-group mb-4 mt-1 text-sm text-gray-500 dark:text-gray-300">
+            <div className="form-group mb-4 mt-1 text-sm">
                 <label htmlFor="photo-upload" className="mt-8 text text-2xl font-bold">
                     Upload Photo
                 </label>

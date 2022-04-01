@@ -11,16 +11,14 @@ const ProfileDetails = ({ user }) => {
   console.log(profile._id)
   return (
     <>
-      <div className="flex place-items-center">
+      <div>
         <div>
+          <img className="object-scale-down h-48 w-96, w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg float-left" src={profile.photo} alt="avatar" />
           <h1 className="mt-8 text-center text-3xl font-bold" >{profile.name}</h1>
-          <img className="object-scale-down h-48 w-96" src={profile.photo} alt="avatar" />
         </div>
-        <h3 className="mt-8 text-center text-3xl font-bold">bar: {profile.bar}</h3>
-        <br></br>
-        <h3 className="mt-8 text-center text-3xl font-bold">city: {profile.city}</h3>
-        <br></br>
-        <h3 className="mt-8 text-center text-3xl font-bold">bio: {profile.bio}</h3>
+        <h2 className="mt-8 text-center text-3xl font-bold">bar: {profile.bar}</h2>
+        <h2 className="mt-8 text-center text-3xl font-bold">city: {profile.city}</h2>
+        <h2 className="mt-8 text-center text-3xl font-bold">bio: {profile.bio}</h2>
 
         {
 
