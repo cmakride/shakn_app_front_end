@@ -56,7 +56,13 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
                 <h2>Method: {currentCocktail.method}</h2>
                 <h2>Garnish: {currentCocktail.garnish}</h2>
                 <h2>Served in: {currentCocktail.served_in}</h2>
-                <h2>Ingredients: {currentCocktail.ingredients}</h2>
+                <h2>Ingredients:</h2> 
+                {currentCocktail.ingredients.map((ingredient,idx)=>(
+                    <div key={idx} >
+                        {ingredient}
+                        </div>
+
+                ))}
                 <br />
                 <MakeReview handleAddRating={handleAddRating}reviews={reviewsArray} profileId = {profileId} cocktailId={currentCocktail._id}/>
                 <div class="max-w-lg shadow-md">

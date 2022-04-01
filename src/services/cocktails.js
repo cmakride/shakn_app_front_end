@@ -28,9 +28,9 @@ function deleteCocktail(id) {
   .then(res => res.json())
 }
 
-function update(cocktail) {
-    console.log(cocktail.get('_id'))
-    return fetch(`${BASE_URL}/${cocktail.get('_id')}`, {
+function update(cocktail,cocktailId) {
+    console.log("COKTAILID",cocktailId)
+    return fetch(`${BASE_URL}/${cocktailId}`, {
         method: 'PUT',
         headers: {'Authorization': `Bearer ${tokenService.getToken()}`},
         body: cocktail
