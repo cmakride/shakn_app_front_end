@@ -164,6 +164,7 @@ const handleAddRating = (rating, cocktailId,profileId)=>{
                 cocktails={cocktails}
                 handleAddCocktailFav={handleAddCocktailFav}
                 handleRemoveCocktailFav={handleRemoveCocktailFav}
+                handleDeleteCocktail={handleDeleteCocktail}
                 profile={profile} />}
           />
 
