@@ -1,6 +1,6 @@
 # Shakn 🍸
 
-Welcome to Shakn! A mobile cocktail sharing app created by [Jaeyoung Choi](https://github.com/choijyoung), [Amanda Karczewski](https://github.com/ajkarczewski), and [Christopher Makrides](https://github.com/cmakride). Shakn is a place where bartenders and mixologosts can catologue their cocktail recipes and share them with other professionals. You can start exploring our site [here](https://shakn-front-end.herokuapp.com/).
+Welcome to Shakn! A mobile cocktail sharing app created by [Jaeyoung Choi](https://github.com/choijyoung), [Amanda Karczewski](https://github.com/ajkarczewski), and [Christopher Makrides](https://github.com/cmakride). Shakn is a place where bartenders and mixologosts can catologue their cocktail recipes and share them with other professionals. You can start exploring our site [here](https://shakn.netlify.app/).
 
 ## How it started... 📝
 Check out our Trello board and planning materials [here](https://trello.com/b/L6dbiTqe/cocktail-app-p3)
@@ -20,6 +20,7 @@ we used cloudinary for image upload functionality
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 
