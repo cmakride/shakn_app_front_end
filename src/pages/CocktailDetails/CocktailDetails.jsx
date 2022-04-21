@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState,useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Comments from '../../components/Comments/Comments';
 import Reviews from '../../components/Reviews/Reviews';
