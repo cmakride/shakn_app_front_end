@@ -11,6 +11,7 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
 
     return (
         <div className="w-40 p-2 m-1 bg-white rounded-xl md:flex md:flex-wrap shadow-lg ">
+            <img src={cocktail.image} alt="cocktail" />
             <div>
                 <Link to="/cocktail" state={{ cocktail }} className="font-bold text-lg">{cocktail.name}</Link>
             </div>

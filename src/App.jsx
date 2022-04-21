@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate, Navigate, NavLink } from 'react-router-dom'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import AddCocktail from './pages/AddCocktail/AddCocktail'
 import CocktailList from './pages/CocktailList/CocktailList'
 import CocktailDetail from './pages/CocktailDetails/CocktailDetails'

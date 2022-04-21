@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState,useRef } from 'react'
 import { useLocation } from 'react-router-dom';
 
 function ProfileEditForm(props) {
@@ -11,7 +11,7 @@ function ProfileEditForm(props) {
         bar: '',
         bio: '',
       })
-    const [validForm, setValidForm] = useState(true)
+    const [validForm] = useState(true)
     const formElement = useRef()
     console.log(profile)
 
