@@ -4,7 +4,7 @@ import { CocktailCard } from "../../components/CocktailCard/CocktailCard";
 const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav, handleDeleteCocktail, profile }) => {
     return (
         <>
-            <h1 className="mt-8 text-white text-center text-3xl font-bold p-4">Cocktail List</h1>
+            <h1 className="my-8 text-white text-center text-3xl font-bold p-4">All Cocktails</h1>
             <div className="grid grid-cols-1 gap-4 mx-5 justify-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
                 {cocktails.map((cocktail, idx) => (
 

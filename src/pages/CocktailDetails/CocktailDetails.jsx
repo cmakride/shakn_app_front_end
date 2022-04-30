@@ -40,9 +40,6 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
     }
 
 
-    
-    // if(!currentCocktail)return <h1>Hello</h1>
-
 
     //! this ternary is saying if current cocktail exists this will be loaded, if does not exists it will go to a loading text and react will wait and check if it does load
     return (
@@ -65,8 +62,8 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
                 ))}
                 <br />
                 <MakeReview handleAddRating={handleAddRating}reviews={reviewsArray} profileId = {profileId} cocktailId={currentCocktail._id}/>
-                <div class="max-w-lg shadow-md">
-                <form class="w-full p-4"
+                <div className="max-w-lg shadow-md">
+                <form className="w-full p-4"
                     autoComplete='off'
                     ref={formElement}
                     onSubmit={handleCommentSubmit}
@@ -86,10 +83,6 @@ function CocktailDetail({ cocktails, handleAddRating,handleAddCocktailFav, handl
                 </form>
                 </div>
                 
-                {/* add comment list component here
-        pass comment array to comment component as props
-        within comment list map through props.commentarray
-        */}
 
             <br></br>
                 <Comments comments = {commentsArray}/>

@@ -8,7 +8,6 @@ import Collection from './pages/Collection/Collection'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 import ProfileEditForm from './pages/ProfileEditForm/ProfileEditForm'
@@ -134,7 +133,12 @@ const handleAddRating = (rating, cocktailId,profileId)=>{
 
         <Routes className="container mx-auto mb-8 px-8">
           <Route path="/" element={
-            <Landing profile= {profile} user={user} />}
+            <CocktailList
+            cocktails={cocktails}
+            handleDeleteCocktail={handleDeleteCocktail}
+            handleAddCocktailFav={handleAddCocktailFav}
+            handleRemoveCocktailFav={handleRemoveCocktailFav}
+            profile={profile} />}
           />
 
           <Route
