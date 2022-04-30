@@ -12,8 +12,8 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
     return (
         <>
             <div>
-                <Link to="/cocktail" state={{ cocktail }} className="font-bold text-lg">
-                    <img src={cocktail.image} alt="cocktail" className="w-full object-cover object-center" />
+                <Link to="/cocktail" state={{ cocktail }}>
+                    <img src={cocktail.image} alt="cocktail" className="w-full h-80 object-cover object-center" />
                     {cocktail.name}
                 </Link>
             </div>
