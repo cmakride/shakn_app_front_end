@@ -12,6 +12,9 @@ module.exports = {
         light:{
           100: '#d7dde8'
         }
+      },
+      fontFamily: {
+        'cocktail-name': ['"MuseoModerno"', 'cursive']
       }
     },
   },

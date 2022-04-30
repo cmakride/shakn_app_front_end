@@ -6,8 +6,7 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
     const cocktailId = cocktail._id
     const favoritesArray = profile.favoriteCocktails
 
-    const inFavorites = favoritesArray.find(i => i === cocktailId)
-
+    const inFavorites = favoritesArray?.find(i => i === cocktailId)
 
 
     return (
@@ -19,11 +18,11 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
                 </Link>
             </div>
             <div id="buttons-container" className="flex justify-center h-16 content-center gap-5">
-                
+
                 {((cocktail.profile._id === profile._id) || (cocktail.profile === profile._id)) ?
                     <>  <button>
                         <Link className="text-2xl" to='/editcocktail' state={{ cocktail }}><FiEdit /></Link>
-                        </button>
+                    </button>
                         <button className="text-2xl" onClick={() => handleDeleteCocktail(cocktailId)} ><BsTrash /></button>
                     </>
                     :
@@ -31,25 +30,24 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
                     </>
 
                 }
-                {inFavorites ?
+                {favoritesArray ?
                     <>
-                        <button className="text-2xl" onClick={() => handleRemoveCocktailFav(cocktail)}><BsSuitHeartFill /></button>
+                        {inFavorites ?
+                            <>
+                                <button className="text-2xl" onClick={() => handleRemoveCocktailFav(cocktail)}><BsSuitHeartFill /></button>
+                            </>
+                            :
+                            <>
+                                <button className="text-2xl" onClick={() => handleAddCocktailFav(cocktail)}><BsSuitHeart /></button>
+                            </>
+                        }
                     </>
                     :
                     <>
-                        <button className="text-2xl" onClick={() => handleAddCocktailFav(cocktail)}><BsSuitHeart /></button>
+                        <div id="name-container" className="flex mt-4">
+                            <h3 className="font-cocktail-name" >{cocktail.name}</h3>
+                        </div>
                     </>
-
-                }
-                {profile ?
-                    <>
-                       
-                    </>
-                    :
-                    <>
-                        <h3>{cocktail.name}</h3>
-                    </>
-
                 }
             </div>
         </>
