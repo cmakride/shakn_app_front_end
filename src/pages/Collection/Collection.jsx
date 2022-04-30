@@ -36,8 +36,6 @@ const Collection = ({cocktails,profile, handleAddCocktailFav,handleRemoveCocktai
                    handleAddCocktailFav ={handleAddCocktailFav}
                    handleDeleteCocktail={handleDeleteCocktail}
                    />
-                
-                   
                 </div>
             ))}
         </div>
