@@ -9,21 +9,18 @@ const NavBar = ({ user, handleLogout }) => {
     <>
 
       {user ? (
-        <div className="flex items-center justify-between border-b p-5 border-gray-400 py-8 bg-white shadow w-full">
+        <div id="navbar" className="flex items-center justify-between border-b p-5 border-gray-400 py-8 bg-white shadow w-full">
           <nav>
             <section className="MOBILE-MENU flex lg:hidden">
               <div className="HAMBURGER-ICON space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
 
+                <div className='ml-4 flex flex-col gap-1 justify-center content-center'>
+                  <ion-icon size="large" name="wine-outline" ></ion-icon>
 
-                <ion-icon size="-large" name="wine-outline"></ion-icon>
-                <br></br>
-                <NavLink to='/'>Shakn</NavLink>
-
-
-                <span className="text-2xl cursor-pointer mr-1 pt-2"></span>
-                <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-                <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-                <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                </div>
 
               </div>
 
@@ -104,10 +101,12 @@ const NavBar = ({ user, handleLogout }) => {
               </div>
             </section>
 
-            <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
+            <ul className="DESKTOP-MENU hidden space-x-8 lg:flex items-center justify-center">
 
-              <ion-icon size="large" name="wine-outline"></ion-icon>
-              <NavLink to='/'>Shakn</NavLink>
+              <div className="flex flex-col items-center">
+                <ion-icon size="large" name="wine-outline"></ion-icon>
+                <NavLink className="font-cocktail-name" to='/'>Shakn</NavLink>
+              </div>
 
               <li className="border-b border-gray-400 my-8 uppercase">
 
@@ -190,13 +189,13 @@ const NavBar = ({ user, handleLogout }) => {
             <section className="MOBILE-MENU flex lg:hidden flex-col gap-2 ml-4">
               <div lassName="HAMBURGER-ICON space-y-2" onClick={() => setIsNavOpen((prev) => !prev)}>
 
-                
+
                 <div className='ml-4 flex flex-col gap-1 justify-center content-center'>
-                <ion-icon size="large" name="wine-outline" ></ion-icon>
-                
-                <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
-                <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
-                <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                  <ion-icon size="large" name="wine-outline" ></ion-icon>
+
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
+                  <span className="block h-1 w-8 animate-pulse bg-gray-600"></span>
                 </div>
 
               </div>
@@ -253,11 +252,13 @@ const NavBar = ({ user, handleLogout }) => {
               </div>
             </section>
 
-            <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
+            <ul className="DESKTOP-MENU hidden space-x-8 lg:flex items-center justify-center">
 
-              <ion-icon size="large" name="wine-outline"></ion-icon>
-              <br></br>
-              <NavLink to='/'>Shakn</NavLink>
+              <div className="flex flex-col items-center">
+                <ion-icon size="large" name="wine-outline"></ion-icon>
+                <NavLink className="font-cocktail-name" to='/'>Shakn</NavLink>
+              </div>
+
               <li className="border-b border-gray-400 my-8 uppercase">
                 <NavLink
                   to="/cocktails"
