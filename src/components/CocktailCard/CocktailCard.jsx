@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import { BsSuitHeart, BsSuitHeartFill } from 'react-icons/bs'
+import { BsSuitHeart, BsSuitHeartFill, BsTrash } from 'react-icons/bs'
+import { FiEdit } from 'react-icons/fi'
 
 function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav, handleAddCocktailFav, profile }) {
     const cocktailId = cocktail._id
@@ -14,29 +15,39 @@ function CocktailCard({ cocktail, handleDeleteCocktail, handleRemoveCocktailFav,
             <div>
                 <Link to="/cocktail" state={{ cocktail }}>
                     <img src={cocktail.image} alt="cocktail" className="w-full h-80 object-cover object-center" />
-                    {cocktail.name}
+
                 </Link>
             </div>
-            <div>
+            <div id="buttons-container" className="flex justify-center h-16 content-center gap-5">
+                
                 {((cocktail.profile._id === profile._id) || (cocktail.profile === profile._id)) ?
-                    <>
-                        <Link to='/editcocktail' state={{ cocktail }} className="text-white bg-yellow-500 p-2 rounded-md">Edit</Link>
-                        <button onClick={() => handleDeleteCocktail(cocktailId)} className="text-white bg-red-600 p-1 h-9 rounded-md">Delete</button>
+                    <>  <button>
+                        <Link className="text-2xl" to='/editcocktail' state={{ cocktail }}><FiEdit /></Link>
+                        </button>
+                        <button className="text-2xl" onClick={() => handleDeleteCocktail(cocktailId)} ><BsTrash /></button>
                     </>
                     :
                     <>
                     </>
 
                 }
-            </div>
-            <div>
                 {inFavorites ?
                     <>
-                        <button onClick={() => handleRemoveCocktailFav(cocktail)}><BsSuitHeartFill /></button>
+                        <button className="text-2xl" onClick={() => handleRemoveCocktailFav(cocktail)}><BsSuitHeartFill /></button>
                     </>
                     :
                     <>
-                        <button onClick={() => handleAddCocktailFav(cocktail)}><BsSuitHeart /></button>
+                        <button className="text-2xl" onClick={() => handleAddCocktailFav(cocktail)}><BsSuitHeart /></button>
+                    </>
+
+                }
+                {profile ?
+                    <>
+                       
+                    </>
+                    :
+                    <>
+                        <h3>{cocktail.name}</h3>
                     </>
 
                 }

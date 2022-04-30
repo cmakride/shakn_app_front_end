@@ -8,7 +8,7 @@ const CocktailList = ({ cocktails, handleAddCocktailFav, handleRemoveCocktailFav
             <div className="grid grid-cols-1 gap-4 mx-5 justify-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
                 {cocktails.map((cocktail, idx) => (
 
-                    <div className="h-96 w-96 max-w-xs border-2 border-gray-200 border-opacity-600 rounded-lg overflow-hidden" key={idx}>
+                    <div className="h-96 w-96 max-w-xs border-2 border-gray-200 border-opacity-600 rounded-lg overflow-hidden bg-gradient-to-r from-light-100 to-dark-100" key={idx}>
 
                         <CocktailCard profile={profile} cocktail={cocktail}
                             handleRemoveCocktailFav={handleRemoveCocktailFav}
